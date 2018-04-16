@@ -8,13 +8,14 @@ import { required, notEmpty, isTrimmed } from './validators';
 
 
 export class LoginForm extends Component {
+  // TODO: write on submit
   render() {
 
     return (
       <div>
         <form>
           <h1>Log in</h1>
-          <div className='fieldset-log'>
+          <div className='fieldset-login'>
             <label htmlFor='username'>Username</label>
             <Field
               component={Input}
@@ -23,7 +24,7 @@ export class LoginForm extends Component {
               validate={[required, notEmpty, isTrimmed]} />
           </div>
 
-          <div className='fieldset-log'>
+          <div className='fieldset-login'>
             <label htmlFor='password'>Password</label>
             <Field
               component={Input}
