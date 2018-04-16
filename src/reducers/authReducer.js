@@ -1,5 +1,5 @@
 import { AUTH_SUCCESS, SET_AUTH, CLEAR_AUTH, AUTH_REQUEST, AUTH_FAILURE } from '../actions/auth';
-import { clearAuthToken } from '../local-storage'
+import { clearAuthToken } from '../localStorage'
 
 
 

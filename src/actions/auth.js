@@ -3,7 +3,7 @@ import { SubmissionError } from 'redux-form';
 
 import { API_BASE_URL } from '../config';
 import { normalizeResponseErrors } from './utils';
-import { saveAuthToken, clearAuthToken } from '../localStorage'
+import { saveAuthToken } from '../localStorage'
 
 
 // set auth token in state
