@@ -16,12 +16,13 @@ export class SignUp extends Component {
     const user = { username, password, firstName, lastName }
     return this.props.dispatch(signup(user))
       .then(() => this.props.dispatch(login(username, password)))
-    //TODO: uncomment when dashboard is created
-    // .then(() => {
-    //   if (this.props.loggedIn) {
-    //     this.props.history.push("/dashboard")
-    //   }
-    // });
+      //TODO: uncomment when dashboard is created
+      .then(() => {
+        if (this.props.loggedIn) {
+          // this.props.history.push("/dashboard")
+          console.log('logged in!')
+        }
+      });
   }
 
   render() {

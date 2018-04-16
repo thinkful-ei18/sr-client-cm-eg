@@ -5,6 +5,8 @@ import { API_BASE_URL } from '../config';
 import { normalizeResponseErrors } from './utils';
 import { saveAuthToken } from '../localStorage'
 
+import axios from 'axios';
+
 
 // set auth token in state
 export const SET_AUTH = 'SET_AUTH';
@@ -41,41 +43,35 @@ export const authFailure = error => ({
 
 const storeAuthInfo = (authToken, dispatch) => {
   const decodedToken = jwtDecode(authToken);
+  console.log(decodedToken);
   dispatch(setAuth(authToken));
-  dispatch(authSuccess(decodedToken.user));
+  dispatch(authSuccess(decodedToken));
   // save auth token from local storage
   saveAuthToken(authToken);
 }
 
 export const login = (username, password) => dispatch => {
+  console.log(username, password)
   dispatch(authRequest());
-  return (
-    fetch(`${API_BASE_URL}/auth`, {
-      methods: 'POST',
-      headers: {
-        'content-type': 'application/json'
-      },
-      body: JSON.stringify({
-        username,
-        password
-      })
+  axios({
+    url: `${API_BASE_URL}/auth`,
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json'
+    },
+    data: JSON.stringify({
+      username,
+      password
     })
-      .then(res => normalizeResponseErrors(res))
-      .then(res => res.json())
-      // store jwt from server in localstorage
-      .then(({ authToken }) => storeAuthInfo(authToken, dispatch))
-      .catch(err => {
-        // error 401, password or username incorrect
-        const message = err.code === 401 ? 'Incorrect username or password' : 'Something went wrong, please try again'
-        dispatch(authFailure(err))
-        // reject promise from fetch
-        return Promise.reject(
-          new SubmissionError({
-            _error: message
-          })
-        );
-      })
-  )
+  })
+    .then((response) => { console.log(response.data.authToken); storeAuthInfo(response.data.authToken, dispatch) })
+    .catch(err => {
+      console.log('error triggered');
+      // error 401, password or username incorrect
+      const message = err.code === 401 ? 'Incorrect username or password' : 'Something went wrong, please try again'
+      dispatch(authFailure(err))
+      console.log(err);
+    })
 }
 
 export const signup = user => dispatch => {

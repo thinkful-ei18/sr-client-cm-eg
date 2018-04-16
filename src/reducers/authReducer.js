@@ -13,6 +13,7 @@ const initialState = {
 export const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case AUTH_SUCCESS:
+      console.log(action.currentUser);
       return {
         ...state,
         currentUser: action.currentUser

@@ -10,17 +10,19 @@ const usernameLength = length({ min: 5, max: 72 });
 
 
 
-export class LoginForm extends Component {
+export class Login extends Component {
 
   onSubmit(values) {
     const { username, password } = values;
+    console.log(username, password);
     return this.props.dispatch(login(username, password))
-    // TODO: uncomment when dashboard is created
-    // .then(() => {
-    //   if (this.props.loggedIn) {
-    //     this.props.history.push('/dashboard');
-    //   }
-    // });
+      // TODO: uncomment when dashboard is created
+      .then(() => {
+        if (this.props.loggedIn) {
+          // this.props.history.push('/dashboard');
+          console.log('logged in!');
+        }
+      });
   }
 
   render() {
@@ -62,4 +64,4 @@ export const mapStateToProps = (state, props) => ({
 export default reduxForm({
   form: 'login',
   onSubmitFail: (errors, dispatch) => dispatch(focus('login', 'username'))
-})(connect(mapStateToProps)((LoginForm)));
+})(connect(mapStateToProps)((Login)));
