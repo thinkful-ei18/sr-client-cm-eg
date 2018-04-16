@@ -38,3 +38,42 @@ export const authFailure = error => ({
   type: AUTH_FAILURE,
   error
 })
+
+const storeAuthInfo = (authToken, dispatch) => {
+  const decodedToken = jwtDecode(authToken);
+  dispatch(setAuth(authToken));
+  dispatch(authSuccess(decodedToken.user));
+  // save auth token from local storage
+  saveAuthToken(authToken);
+}
+
+export const login = (username, password) => dispatch => {
+  dispatch(authRequest());
+  return (
+    fetch(`${API_BASE_URL}/login`, {
+      methods: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        username,
+        password
+      })
+    })
+      .then(res => normalizeResponseErrors(res))
+      .then(res => res.json())
+      // store jwt from server in localstorage
+      .then(({ authToken }) => storeAuthInfo(authToken, dispatch))
+      .catch(err => {
+        // error 401, password or username incorrect
+        const message = err.code === 401 ? 'Incorrect username or password' : 'Something went wrong, please try again'
+        dispatch(authFailure(err))
+        // reject promise from fetch
+        return Promise.reject(
+          new SubmissionError({
+            _error: message
+          })
+        );
+      })
+  )
+}
