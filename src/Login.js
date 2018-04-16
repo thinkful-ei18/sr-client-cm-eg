@@ -3,17 +3,23 @@ import { Field, reduxForm, focus } from 'redux-form';
 import { connect } from 'react-redux';
 
 import Input from './Input';
-import { required, notEmpty, isTrimmed } from './validators';
+import { required, notEmpty, isTrimmed, length } from './validators';
+const usernameLength = length({ min: 5, max: 72 });
 
 
 
 export class LoginForm extends Component {
-  // TODO: write on submit
+
+  onSubmit(values) {
+    console.log(values);
+    // TODO: write on submit
+  }
+
   render() {
 
     return (
       <div>
-        <form>
+        <form className='login-form' onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
           <h1>Log in</h1>
           <div className='fieldset-login'>
             <label htmlFor='username'>Username</label>
@@ -21,7 +27,7 @@ export class LoginForm extends Component {
               component={Input}
               type='text'
               name='username'
-              validate={[required, notEmpty, isTrimmed]} />
+              validate={[required, notEmpty, isTrimmed, usernameLength]} />
           </div>
 
           <div className='fieldset-login'>
