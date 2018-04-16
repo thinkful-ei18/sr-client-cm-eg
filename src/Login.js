@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Field, reduxForm, focus } from 'redux-form';
-import { login } from './actions/auth'
 import { connect } from 'react-redux';
+
+import Input from './Input';
+import { required, notEmpty, isTrimmed } from './validators';
 
 
 
@@ -38,4 +40,11 @@ export class LoginForm extends Component {
 }
 
 
-export default LoginForm;
+export const mapStateToProps = (state, props) => ({
+  loggedIn: state.auth.currentUser !== null
+})
+
+export default reduxForm({
+  form: 'login',
+  onSubmitFail: (errors, dispatch) => dispatch(focus('login', 'username'))
+})(connect(mapStateToProps)((LoginForm)));
