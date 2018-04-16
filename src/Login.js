@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Field, reduxForm, focus } from 'redux-form';
 import { connect } from 'react-redux';
 
+import { login } from './actions/auth';
+
 import Input from './Input';
 import { required, notEmpty, isTrimmed, length } from './validators';
 const usernameLength = length({ min: 5, max: 72 });
@@ -11,8 +13,14 @@ const usernameLength = length({ min: 5, max: 72 });
 export class LoginForm extends Component {
 
   onSubmit(values) {
-    console.log(values);
-    // TODO: write on submit
+    const { username, password } = values;
+    return this.props.dispatch(login(username, password))
+    // TODO: uncomment when dashboard is created
+    // .then(() => {
+    //   if (this.props.loggedIn) {
+    //     this.props.history.push('/dashboard');
+    //   }
+    // });
   }
 
   render() {
