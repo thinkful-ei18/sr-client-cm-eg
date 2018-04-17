@@ -18,12 +18,29 @@ export const questionSuccess = question => ({
   question
 })
 
+export const RESULT_REQUEST = 'RESULT_REQUEST';
+export const resultRequest = () => ({
+  type: QUESTION_REQUEST,
+})
+
+export const RESULT_ERROR = 'RESULT_ERROR';
+export const resultError = error => ({
+  type: QUESTION_ERROR,
+  error
+})
+
+export const RESULT_SUCCESS = 'RESULT_SUCCESS';
+export const resultSuccess = result => ({
+  type: QUESTION_SUCCESS,
+  result
+})
+
 //TODO: write fetch
 export const getQuestion = () => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
 
   dispatch(questionRequest());
-  //TODO:change url;
+
   return fetch(`${API_BASE_URL}/questions`, {
     method: 'GET',
     headers: {
@@ -39,10 +56,11 @@ export const getQuestion = () => (dispatch, getState) => {
     })
 }
 
-export const answerQuestion = (question) => (dispatch, getState) => {
+export const answerQuestion = (answer) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
 
-  //TODO:change url
+  dispatch(resultRequest())
+
   return fetch(`${API_BASE_URL}/questions`, {
     method: 'POST',
     headers: {
@@ -50,10 +68,13 @@ export const answerQuestion = (question) => (dispatch, getState) => {
       Authorization: `Bearer ${authToken}`
     },
     body: JSON.stringify({
-      question
+      answer
     }),
   })
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
-    .catch(err => console.log(err));
+    .then(({ result }) => dispatch(resultSuccess(result)))
+    .catch(err => {
+      dispatch(resultError());
+    });
 };
