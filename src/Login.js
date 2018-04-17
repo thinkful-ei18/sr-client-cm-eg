@@ -51,6 +51,7 @@ export class Login extends Component {
           </div>
           <button type='submit' disabled={this.props.pristine || this.props.submitting}>Login</button>
         </form >
+        {this.props.error}
       </div >
 
     );
@@ -59,7 +60,8 @@ export class Login extends Component {
 
 
 export const mapStateToProps = (state, props) => ({
-  loggedIn: state.auth.currentUser !== null
+  loggedIn: state.auth.currentUser !== null,
+  error: state.auth.error
 })
 
 export default reduxForm({
