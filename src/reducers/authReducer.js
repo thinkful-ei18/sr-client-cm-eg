@@ -13,22 +13,27 @@ const initialState = {
 export const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case AUTH_SUCCESS:
-      console.log(action.currentUser);
       return {
         ...state,
-        currentUser: action.currentUser
+        currentUser: action.currentUser,
+        loading: false,
+        error: false
       }
     case SET_AUTH:
       return {
         ...state,
-        authToken: action.authToken
+        authToken: action.authToken,
+        loading: false,
+        error: false
       }
     case CLEAR_AUTH:
       clearAuthToken()
       return {
         ...state,
         authToken: null,
-        currentUser: null
+        currentUser: null,
+        loading: false,
+        error: false
       }
     case AUTH_REQUEST:
       return {
