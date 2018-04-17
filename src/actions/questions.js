@@ -1,3 +1,5 @@
+import { API_BASE_URL } from '../config';
+import { normalizeResponseErrors } from './utils';
 
 export const QUESTION_REQUEST = 'QUESTION_REQUEST';
 export const questionRequest = () => ({
@@ -17,3 +19,24 @@ export const questionSuccess = question => ({
 })
 
 //TODO: write fetch
+export const getQuestion = () => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+
+  dispatch(questionRequest());
+  //TODO:change url;
+  return fetch(`${API_BASE_URL}/question`, {
+    method: 'GET',
+    headers: {
+      'content-type': 'application/json',
+      Authorization: `Bearer ${authToken}`
+    },
+    //TODO: body?
+  })
+    .then(res => normalizeResponseErrors(res))
+    .then(res => res.json())
+    //TODO: get data
+    //dispatch(questionSuccess());
+    .catch(err => {
+      dispatch(questionError(err))
+    })
+}
