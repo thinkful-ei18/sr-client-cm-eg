@@ -16,3 +16,5 @@ export const statsReducer = (state = initialState, action) => {
 
   }
 }
+
+export default statsReducer;

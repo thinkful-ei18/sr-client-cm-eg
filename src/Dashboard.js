@@ -5,7 +5,7 @@ import RequiresLogin from './Requires-Login';
 class Dashboard extends Component {
   render() {
     return (
-      <h1>Dashboard</h1>
+      <h1>User stats page</h1>
     )
   }
 }

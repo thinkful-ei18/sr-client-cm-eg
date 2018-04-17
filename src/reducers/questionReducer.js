@@ -1,16 +1,29 @@
 import { QUESTION_SUCCESS, QUESTION_REQUEST, QUESTION_ERROR } from "../actions/questions";
 import { RESULT_ERROR, RESULT_REQUEST, RESULT_SUCCESS } from '../actions/questions';
+import { CLEAR_AUTH } from "../actions/auth";
+import { clearAuthToken } from "../localStorage";
 
 
 const initialState = {
   question: null,
   result: null,
   loading: false,
-  error: false
+  error: false,
+  count: { correct: 0, incorrect: 0 }
 };
 
 export const questionReducer = (state = initialState, action) => {
   switch (action.type) {
+    case CLEAR_AUTH:
+      clearAuthToken()
+      return {
+        ...state,
+        question: null,
+        result: null,
+        loading: false,
+        error: false,
+        count: { correct: 0, incorrect: 0 }
+      }
     case QUESTION_SUCCESS:
       return {
         ...state,
