@@ -1,12 +1,10 @@
 import { AUTH_SUCCESS, SET_AUTH, CLEAR_AUTH, AUTH_REQUEST, AUTH_FAILURE } from '../actions/auth';
 import { clearAuthToken } from '../localStorage'
-import jwtDecode from 'jwt-decode';
-import { loadAuthToken } from '../localStorage';
 
-const authToken = loadAuthToken() !== null ? loadAuthToken() : null;
-//FIXME: concern if authToken is invalid this will not work
+
+
 const initialState = {
-  currentUser: authToken !== null ? jwtDecode(authToken) : null,
+  currentUser: null,
   authToken: null,
   loading: false,
   error: null

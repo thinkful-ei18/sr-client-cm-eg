@@ -24,7 +24,7 @@ export const getQuestion = () => (dispatch, getState) => {
 
   dispatch(questionRequest());
   //TODO:change url;
-  return fetch(`${API_BASE_URL}/questions`, {
+  return fetch(`${API_BASE_URL}/question`, {
     method: 'GET',
     headers: {
       'content-type': 'application/json',
@@ -45,7 +45,7 @@ export const answerQuestion = (question) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
 
   //TODO:change url
-  return fetch(`${API_BASE_URL}/questions`, {
+  return fetch(`${API_BASE_URL}/question`, {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
