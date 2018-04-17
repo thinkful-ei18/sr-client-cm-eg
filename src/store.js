@@ -3,17 +3,21 @@ import { reducer as formReducer } from 'redux-form'
 import thunk from 'redux-thunk';
 
 import authReducer from './reducers/authReducer';
+import questionReducer from './reducers/questionReducer';
 import { loadAuthToken } from './localStorage';
 import { setAuth } from './actions/auth';
 
 const store = createStore(
   combineReducers({
     form: formReducer,
-    auth: authReducer
+    auth: authReducer,
+    question: questionReducer
   }),
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
   applyMiddleware(thunk)
 )
+
+
 
 const authToken = loadAuthToken();
 if (authToken) {

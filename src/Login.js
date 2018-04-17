@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Field, reduxForm, focus } from 'redux-form';
 import { connect } from 'react-redux';
-
+import { withRouter } from 'react-router-dom';
 import { login } from './actions/auth';
 
 import Input from './Input';
@@ -14,16 +14,18 @@ export class Login extends Component {
 
   onSubmit(values) {
     const { username, password } = values;
-    console.log(username, password);
+    console.log(this.props.loggedIn)
+    //FIXME: not working for some reason???
     return this.props.dispatch(login(username, password))
-      // TODO: uncomment when dashboard is created
       .then(() => {
         if (this.props.loggedIn) {
-          // this.props.history.push('/dashboard');
-          console.log('logged in!');
+          this.props.history.push("/dashboard")
         }
-      });
+      })
+
+
   }
+
 
   render() {
 
@@ -50,6 +52,7 @@ export class Login extends Component {
           </div>
           <button type='submit' disabled={this.props.pristine || this.props.submitting}>Login</button>
         </form >
+        {this.props.error}
       </div >
 
     );
@@ -58,10 +61,11 @@ export class Login extends Component {
 
 
 export const mapStateToProps = (state, props) => ({
-  loggedIn: state.auth.currentUser !== null
+  loggedIn: state.auth.currentUser,
+  error: state.auth.error
 })
 
 export default reduxForm({
   form: 'login',
   onSubmitFail: (errors, dispatch) => dispatch(focus('login', 'username'))
-})(connect(mapStateToProps)((Login)));
+})(withRouter(connect(mapStateToProps)((Login))));

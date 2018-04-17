@@ -1,10 +1,12 @@
 import { AUTH_SUCCESS, SET_AUTH, CLEAR_AUTH, AUTH_REQUEST, AUTH_FAILURE } from '../actions/auth';
 import { clearAuthToken } from '../localStorage'
+import { loadAuthToken } from '../localStorage';
+import jwtDecode from 'jwt-decode';
 
 
-
+const authToken = loadAuthToken() !== null ? loadAuthToken() : null;
 const initialState = {
-  currentUser: null,
+  currentUser: authToken !== null ? jwtDecode(authToken) : null,
   authToken: null,
   loading: false,
   error: null
@@ -13,22 +15,27 @@ const initialState = {
 export const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case AUTH_SUCCESS:
-      console.log(action.currentUser);
       return {
         ...state,
-        currentUser: action.currentUser
+        currentUser: action.currentUser,
+        loading: false,
+        error: false
       }
     case SET_AUTH:
       return {
         ...state,
-        authToken: action.authToken
+        authToken: action.authToken,
+        loading: false,
+        error: false
       }
     case CLEAR_AUTH:
       clearAuthToken()
       return {
         ...state,
         authToken: null,
-        currentUser: null
+        currentUser: null,
+        loading: false,
+        error: false
       }
     case AUTH_REQUEST:
       return {
