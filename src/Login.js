@@ -14,20 +14,17 @@ export class Login extends Component {
 
   onSubmit(values) {
     const { username, password } = values;
-
-    console.log(username, password);
     return this.props.dispatch(login(username, password))
       .then(() => {
+        //TODO: fix this
+        console.log('here');
         if (this.props.loggedIn) {
-          this.loggin();
+          this.props.history.push("/dashboard")
         }
       })
   }
 
-  //TODO: FIX THIS
-  loggin() {
-    this.history.push('/dashboard');
-  }
+
 
   render() {
 
