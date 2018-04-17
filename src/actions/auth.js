@@ -64,6 +64,7 @@ export const login = (username, password) => dispatch => {
   })
     .then((response) => storeAuthInfo(response.data.authToken, dispatch))
     .catch(err => {
+      console.log(err);
       // error 401, password or username incorrect
       const message = err.code === 401 ? 'Incorrect username or password' : 'Something went wrong, please try again'
       dispatch(authFailure(err))
