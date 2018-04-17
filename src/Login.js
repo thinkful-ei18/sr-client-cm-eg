@@ -14,15 +14,14 @@ export class Login extends Component {
 
   onSubmit(values) {
     const { username, password } = values;
+
     console.log(username, password);
     return this.props.dispatch(login(username, password))
-      // TODO: uncomment when dashboard is created
       .then(() => {
         if (this.props.loggedIn) {
-          // this.props.history.push('/dashboard');
-          console.log('logged in!');
+          this.props.history.push('/dashboard');
         }
-      });
+      })
   }
 
   render() {
