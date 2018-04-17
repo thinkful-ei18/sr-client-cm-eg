@@ -40,3 +40,22 @@ export const getQuestion = () => (dispatch, getState) => {
       dispatch(questionError(err))
     })
 }
+
+export const answerQuestion = (question) => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+
+  //TODO:change url
+  return fetch(`${API_BASE_URL}/question`, {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
+      Authorization: `Bearer ${authToken}`
+    },
+    body: JSON.stringify({
+      question
+    }),
+  })
+    .then(res => normalizeResponseErrors(res))
+    .then(res => res.json())
+    .catch(err => console.log(err));
+};
