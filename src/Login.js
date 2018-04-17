@@ -14,16 +14,17 @@ export class Login extends Component {
 
   onSubmit(values) {
     const { username, password } = values;
+    console.log(this.props.loggedIn)
+    //FIXME: not working for some reason???
     return this.props.dispatch(login(username, password))
       .then(() => {
-        //TODO: fix this
-        console.log('here');
         if (this.props.loggedIn) {
           this.props.history.push("/dashboard")
         }
       })
-  }
 
+
+  }
 
 
   render() {
@@ -60,7 +61,7 @@ export class Login extends Component {
 
 
 export const mapStateToProps = (state, props) => ({
-  loggedIn: state.auth.currentUser !== null,
+  loggedIn: state.auth.currentUser,
   error: state.auth.error
 })
 
