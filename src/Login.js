@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Field, reduxForm, focus } from 'redux-form';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Redirect } from 'react-router-dom';
 import { login } from './actions/auth';
 
 import Input from './Input';
@@ -14,16 +14,8 @@ export class Login extends Component {
 
   onSubmit(values) {
     const { username, password } = values;
-    console.log(this.props.loggedIn)
-    //FIXME: not working for some reason???
-    return this.props.dispatch(login(username, password))
-      .then(() => {
-        if (this.props.loggedIn) {
-          this.props.history.push("/dashboard")
-        }
-      })
 
-
+    this.props.dispatch(login(username, password))
   }
 
 
@@ -31,6 +23,7 @@ export class Login extends Component {
 
     return (
       <div>
+        {this.props.loggedIn ? (<Redirect to='/dashboard' />) : ''}
         <form className='login-form' onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
           <h1>Log in</h1>
           <div className='fieldset-login'>

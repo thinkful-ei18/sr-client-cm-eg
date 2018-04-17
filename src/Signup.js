@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { signup, login } from './actions/auth';
@@ -16,18 +16,13 @@ export class SignUp extends Component {
     const user = { username, password, firstName, lastName }
     return this.props.dispatch(signup(user))
       .then(() => this.props.dispatch(login(username, password)))
-      //TODO: uncomment when dashboard is created
-      .then(() => {
-        if (this.props.loggedIn) {
-          // this.props.history.push("/dashboard")
-          console.log('logged in!')
-        }
-      });
-  }
+  };
+
 
   render() {
     return (
       <div className='form-wrapper'>
+        {this.props.loggedIn ? (<Redirect to='/dashboard' />) : ''}
         <h1>Signup</h1>
         <form className='signup-form' onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
           <div className='fieldset-sign'>
