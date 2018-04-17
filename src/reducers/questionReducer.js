@@ -16,7 +16,8 @@ export const questionReducer = (state = initialState, action) => {
         ...state,
         question: action.question,
         loading: false,
-        error: false
+        error: false,
+        result: null
       }
     case QUESTION_REQUEST:
       return {
@@ -30,7 +31,6 @@ export const questionReducer = (state = initialState, action) => {
         loading: false,
         error: action.error
       }
-
     case RESULT_SUCCESS:
       return {
         ...state,

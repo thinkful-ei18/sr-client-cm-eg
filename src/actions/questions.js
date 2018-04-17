@@ -20,22 +20,22 @@ export const questionSuccess = question => ({
 
 export const RESULT_REQUEST = 'RESULT_REQUEST';
 export const resultRequest = () => ({
-  type: QUESTION_REQUEST,
+  type: RESULT_REQUEST,
 })
 
 export const RESULT_ERROR = 'RESULT_ERROR';
 export const resultError = error => ({
-  type: QUESTION_ERROR,
+  type: RESULT_ERROR,
   error
 })
 
 export const RESULT_SUCCESS = 'RESULT_SUCCESS';
 export const resultSuccess = result => ({
-  type: QUESTION_SUCCESS,
+  type: RESULT_SUCCESS,
   result
 })
 
-//TODO: write fetch
+
 export const getQuestion = () => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
 
@@ -60,7 +60,7 @@ export const answerQuestion = (answer) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
 
   dispatch(resultRequest())
-
+  console.log('POST with ' + answer)
   return fetch(`${API_BASE_URL}/questions`, {
     method: 'POST',
     headers: {
@@ -68,7 +68,7 @@ export const answerQuestion = (answer) => (dispatch, getState) => {
       Authorization: `Bearer ${authToken}`
     },
     body: JSON.stringify({
-      answer
+      userAnswer: answer
     }),
   })
     .then(res => normalizeResponseErrors(res))

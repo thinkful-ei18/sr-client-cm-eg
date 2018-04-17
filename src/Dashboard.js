@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import RequiresLogin from './Requires-Login';
 import { getQuestion } from './actions/questions';
+import AnswerForm from './AnswerForm';
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -10,7 +11,10 @@ class Dashboard extends Component {
 
   render() {
     return (
-      <h1>{this.props.question}</h1>
+      <div className='dashboard-container'>
+        <h1>{this.props.question}</h1>
+        <AnswerForm />
+      </div>
     )
   }
 }
