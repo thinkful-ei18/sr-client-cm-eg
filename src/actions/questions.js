@@ -18,6 +18,16 @@ export const questionSuccess = question => ({
   question
 })
 
+export const QUESTION_INCORRECT = 'QUESTION_INCORRECT';
+export const questionIncorrect = () => ({
+  type: QUESTION_INCORRECT,
+})
+
+export const QUESTION_CORRECT = 'QUESTION_CORRECT';
+export const questionCorrect = () => ({
+  type: QUESTION_CORRECT,
+})
+
 export const RESULT_REQUEST = 'RESULT_REQUEST';
 export const resultRequest = () => ({
   type: RESULT_REQUEST,
@@ -33,6 +43,11 @@ export const RESULT_SUCCESS = 'RESULT_SUCCESS';
 export const resultSuccess = result => ({
   type: RESULT_SUCCESS,
   result
+})
+
+export const INCREASE_QUESTION_COUNT = 'INCREASE_QUESTION_COUNT'
+export const increaseQuestionCount = () => ({
+  type: INCREASE_QUESTION_COUNT
 })
 
 
@@ -73,7 +88,12 @@ export const answerQuestion = (answer) => (dispatch, getState) => {
   })
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
-    .then(({ result }) => dispatch(resultSuccess(result)))
+    //TODO: re-write for new endpoint
+    .then(({ result }) => {
+      // dispatch(questionCorrect())
+      // dispatch(questionIncorrect())
+      dispatch(resultSuccess(result))
+    })
     .catch(err => {
       dispatch(resultError());
     });

@@ -9,7 +9,6 @@ const initialState = {
   result: null,
   loading: false,
   error: false,
-  count: { correct: 0, incorrect: 0 }
 };
 
 export const questionReducer = (state = initialState, action) => {
@@ -22,7 +21,8 @@ export const questionReducer = (state = initialState, action) => {
         result: null,
         loading: false,
         error: false,
-        count: { correct: 0, incorrect: 0 }
+        correct: 0,
+        incorrect: 0
       }
     case QUESTION_SUCCESS:
       return {
