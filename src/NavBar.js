@@ -23,7 +23,7 @@ class NavBar extends Component {
     }
     return (
       <nav className='nav'>
-        <NavLink to='/'>Home</NavLink>
+        <NavLink style={{ fontSize: '25px' }} to='/'>Home</NavLink>
         {NavBar}
       </nav>
     )
