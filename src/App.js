@@ -7,6 +7,7 @@ import SignUp from './Signup';
 import NavBar from './NavBar';
 import Quiz from './Quiz';
 import Home from './Home';
+import Dashboard from './Dashboard';
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
         <Route exact path='/login' component={Login} />
         <Route exact path='/signup' component={SignUp} />
         <Route exact path='/quiz' component={Quiz} />
+        <Route exact path='/dashboard' component={Dashboard} />
         <Route exact path='/' component={Home} />
       </div>
     )
