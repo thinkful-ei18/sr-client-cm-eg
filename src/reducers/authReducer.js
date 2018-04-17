@@ -3,9 +3,10 @@ import { clearAuthToken } from '../localStorage'
 import jwtDecode from 'jwt-decode';
 import { loadAuthToken } from '../localStorage';
 
-const authToken = loadAuthToken();
+const authToken = loadAuthToken() !== null ? loadAuthToken() : null;
+//FIXME: concern if authToken is invalid this will not work
 const initialState = {
-  currentUser: jwtDecode(authToken) || null,
+  currentUser: authToken !== null ? jwtDecode(authToken) : null,
   authToken: null,
   loading: false,
   error: null
