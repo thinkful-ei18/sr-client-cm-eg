@@ -4,7 +4,7 @@ import RequiresLogin from './Requires-Login';
 import { getQuestion } from './actions/questions';
 import AnswerForm from './AnswerForm';
 
-class Dashboard extends Component {
+class Quiz extends Component {
   componentDidMount() {
     this.props.dispatch(getQuestion());
   }
@@ -24,4 +24,4 @@ export const mapStateToProps = (state, props) => ({
   question: state.questions.question ? state.questions.question : null
 });
 
-export default RequiresLogin()(connect(mapStateToProps)(Dashboard));
+export default RequiresLogin()(connect(mapStateToProps)(Quiz));

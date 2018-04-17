@@ -9,7 +9,7 @@ class NavBar extends Component {
 
     if (this.props.loggedIn) {
       NavBar = <div className='navbar-logged-in'>
-        <NavLink to='/dashboard'>Dashboard</NavLink>
+        <NavLink to='/quiz'>Quiz</NavLink>
         <NavLink to='/' onClick={() => {
           this.props.dispatch(clearAuth())
         }}>Logout</NavLink>
