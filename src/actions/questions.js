@@ -90,6 +90,7 @@ export const answerQuestion = (answer) => (dispatch, getState) => {
     .then(res => res.json())
     //TODO: re-write for new endpoint
     .then(({ result }) => {
+      // TODO: if correct / incorrect
       // dispatch(questionCorrect())
       // dispatch(questionIncorrect())
       dispatch(resultSuccess(result))

@@ -1,4 +1,5 @@
 import { QUESTION_CORRECT, QUESTION_INCORRECT, INCREASE_QUESTION_COUNT } from "../actions/questions";
+import { RESET_SESSION } from '../actions/stats';
 
 
 
@@ -34,6 +35,13 @@ export const statsReducer = (state = initialState, action) => {
         loading: false,
         error: false,
         questionsAnswered: state.questionsAnswered + 1
+      }
+    case RESET_SESSION:
+      return {
+        ...state,
+        loading: false,
+        error: false,
+        questionsAnswered: 0
       }
 
     default: return state;

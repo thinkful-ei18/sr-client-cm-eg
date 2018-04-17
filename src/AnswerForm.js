@@ -35,6 +35,8 @@ class AnswerForm extends Component {
     if (this.props.questionCount === 10) {
       console.log('10');
       //TODO: dispatch POST stats to backend, notify user they have completed a session, reset questionsAnswered to zero
+      // dispatch(sendStats(correct, incorrect)) POST session info to backend
+      // dispatch(resetSession())
     }
 
     return (
