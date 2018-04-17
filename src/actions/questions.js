@@ -35,7 +35,7 @@ export const getQuestion = () => (dispatch, getState) => {
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
     //TODO: get data
-    //dispatch(questionSuccess());
+    //dispatch(questionSuccess(result));
     .catch(err => {
       dispatch(questionError(err))
     })

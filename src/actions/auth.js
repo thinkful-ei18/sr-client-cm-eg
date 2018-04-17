@@ -43,7 +43,6 @@ export const authFailure = error => ({
 
 const storeAuthInfo = (authToken, dispatch) => {
   const decodedToken = jwtDecode(authToken);
-  console.log(decodedToken);
   dispatch(setAuth(authToken));
   dispatch(authSuccess(decodedToken));
   // save auth token from local storage
@@ -51,7 +50,6 @@ const storeAuthInfo = (authToken, dispatch) => {
 }
 
 export const login = (username, password) => dispatch => {
-  console.log(username, password)
   dispatch(authRequest());
   axios({
     url: `${API_BASE_URL}/auth`,
@@ -64,13 +62,11 @@ export const login = (username, password) => dispatch => {
       password
     })
   })
-    .then((response) => { console.log(response.data.authToken); storeAuthInfo(response.data.authToken, dispatch) })
+    .then((response) => storeAuthInfo(response.data.authToken, dispatch))
     .catch(err => {
-      console.log('error triggered');
       // error 401, password or username incorrect
       const message = err.code === 401 ? 'Incorrect username or password' : 'Something went wrong, please try again'
       dispatch(authFailure(err))
-      console.log(err);
     })
 }
 

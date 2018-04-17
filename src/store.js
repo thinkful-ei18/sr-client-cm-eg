@@ -17,6 +17,8 @@ const store = createStore(
   applyMiddleware(thunk)
 )
 
+
+
 const authToken = loadAuthToken();
 if (authToken) {
   const token = authToken;

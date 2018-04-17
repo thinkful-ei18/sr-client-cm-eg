@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Field, reduxForm, focus } from 'redux-form';
 import { connect } from 'react-redux';
-
+import { withRouter } from 'react-router-dom';
 import { login } from './actions/auth';
 
 import Input from './Input';
@@ -65,4 +65,4 @@ export const mapStateToProps = (state, props) => ({
 export default reduxForm({
   form: 'login',
   onSubmitFail: (errors, dispatch) => dispatch(focus('login', 'username'))
-})(connect(mapStateToProps)((Login)));
+})(withRouter(connect(mapStateToProps)((Login))));
