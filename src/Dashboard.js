@@ -14,4 +14,4 @@ export const mapStateToProps = (state, props) => ({
   loggedIn: state.auth.currentUser !== null
 });
 
-export default RequiresLogin((connect(mapStateToProps)(Dashboard)));
+export default RequiresLogin()(connect(mapStateToProps)(Dashboard));
