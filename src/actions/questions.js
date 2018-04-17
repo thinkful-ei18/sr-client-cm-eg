@@ -30,12 +30,10 @@ export const getQuestion = () => (dispatch, getState) => {
       'content-type': 'application/json',
       Authorization: `Bearer ${authToken}`
     },
-    //TODO: body?
   })
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
-    //TODO: get data
-    //dispatch(questionSuccess(result));
+    .then(({ question }) => dispatch(questionSuccess(question)))
     .catch(err => {
       dispatch(questionError(err))
     })
