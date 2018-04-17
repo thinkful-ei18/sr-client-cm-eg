@@ -19,9 +19,14 @@ export class Login extends Component {
     return this.props.dispatch(login(username, password))
       .then(() => {
         if (this.props.loggedIn) {
-          this.props.history.push('/dashboard');
+          this.loggin();
         }
       })
+  }
+
+  //TODO: FIX THIS
+  loggin() {
+    this.history.push('/dashboard');
   }
 
   render() {
