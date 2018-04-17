@@ -25,7 +25,7 @@ class AnswerForm extends Component {
 
     console.log(this.props.answer);
     if (this.props.answer === null) {
-      nextQuestion = <h1>hi</h1>
+      nextQuestion = null;
     } else {
       nextQuestion = <div className='next-question-button'>
         <button type='button' onClick={() => this.nextQuestion()}>Next question</button>
@@ -61,4 +61,4 @@ export const mapStateToProps = (state, props) => ({
 export default reduxForm({
   form: 'answer',
   onSubmitFail: (errors, dispatch) => dispatch(focus('answer')),
-})(connect(mapStateToProps)((AnswerForm)));
+})(RequiresLogin()(connect(mapStateToProps)((AnswerForm))));
