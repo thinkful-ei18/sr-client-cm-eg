@@ -1,10 +1,12 @@
 /* LAYOUT */
 .answer-form-wrapper {
+  background-color: green;
   
 }
 
 .answer-form {
-
+  display: flex;
+  flex-direction: column;
 }
 
 .fieldset-answer {
