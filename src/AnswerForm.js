@@ -6,6 +6,9 @@ import { connect } from 'react-redux';
 import RequiresLogin from './Requires-Login';
 import { answerQuestion, getQuestion, increaseQuestionCount } from './actions/questions';
 
+// styles
+import './styles/styles-quiz-page/answerFormComponent.css';
+
 class AnswerForm extends Component {
   onSubmit(values) {
     console.log(values);
