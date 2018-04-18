@@ -6,7 +6,7 @@
 
 .answer-form {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .fieldset-answer {
@@ -31,7 +31,19 @@
   
 }
 
-input {
+.fieldset-answer input {
   border: none;
-  background-color: none;
+  background-color: transparent;
+  width: 14rem;
+  height: 2rem;
+  font-size: 16px;
+  border-bottom: 1px solid black;
+}
+
+.fieldset-answer input:focus {
+  outline: none;
+}
+
+.fieldset-answer label {
+  display: none
 }
