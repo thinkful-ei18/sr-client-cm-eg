@@ -20,6 +20,7 @@ class AnswerForm extends Component {
   }
 
   nextQuestion() {
+    // TODO: focus input
     this.props.dispatch(getQuestion());
   }
 
@@ -53,6 +54,7 @@ class AnswerForm extends Component {
                 type='text'
                 name='answer'
                 placeholder='answer...'
+                focus
                 validate={[required, notEmpty]} />
             </div>
             <button type='submit' disabled={this.props.pristine || this.props.submitting} className='answer-button'>Answer</button>
