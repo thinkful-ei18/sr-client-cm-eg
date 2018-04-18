@@ -32,10 +32,11 @@
 .nav a {
   text-decoration: none;
   color: #000;
+  transition: all;
 }
 
 .nav a:hover {
-  color: red;
+  font-weight: bold;
 }
 
 /* MEDIA QUERIES */
