@@ -1,6 +1,6 @@
 /* LAYOUT */
 .quiz-container {
-  height: 94vh;
+  height: 95vh;
   width: 100vw;
   display: flex;
   flex-direction: row;
@@ -11,8 +11,11 @@
   display: flex;
   justify-content: center;;
   align-items: center;
-  padding-left: 1rem;
   background-color: green
+}
+
+.question-text {
+  width: 70%;
 }
 
 .answer-form-component {
@@ -32,7 +35,4 @@
     flex-direction: column;
   }
 
-  .question {
-    padding-right: 1rem;
-  }
 }

@@ -52,7 +52,7 @@ class AnswerForm extends Component {
                 component={Input}
                 type='text'
                 name='answer'
-                placeholder='answer'
+                placeholder='answer...'
                 validate={[required, notEmpty]} />
             </div>
             <button type='submit' disabled={this.props.pristine || this.props.submitting} className='answer-button'>Answer</button>

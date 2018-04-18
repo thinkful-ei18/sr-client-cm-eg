@@ -1,27 +1,25 @@
 /* LAYOUT */
 .answer-form-wrapper {
-  background-color: green;
-  height: 100%;
   display: flex;
   flex-direction: column;
-  /* position: relative; */
-  /* flex-wrap: wrap; */
   justify-content: center;
   align-items: center;
-  
 }
 
 .answer-form {
-  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
 }
 
 .fieldset-answer {
-  max-height: 3rem;
-  max-width: 15rem;
+  /* max-height: 3rem;
+  max-width: 15rem; */
 }
 
 .result {
-  border: 1px solid red;
+  position: relative;
+  top: 3rem;
+  margin-top: 1rem;
   width: 22rem;
   height: 4rem;
   max-height: 4rem;
@@ -36,13 +34,19 @@
 
 .session-stats {
   position: relative;
-  top: 4rem;
+  top: 6rem;
+  text-align: center;
 }
 
 
 /* STYLES */
 .answer-button {
-
+  margin-left: 1rem;
+  width: 4rem;
+  border-radius: 10px;
+  background-color: white;
+  border: 1px solid black;
+  color: black;
 }
 
 .fieldset-answer input {
@@ -56,7 +60,7 @@
 }
 
 .fieldset-answer input::placeholder {
-  color: blue;
+  color: lightgray;
 }
 
 .fieldset-answer input:focus {
@@ -65,4 +69,13 @@
 
 .fieldset-answer label {
   display: none
+}
+
+
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 700px) {
+  .session-stats {
+    top: 3rem;
+  }
 }
