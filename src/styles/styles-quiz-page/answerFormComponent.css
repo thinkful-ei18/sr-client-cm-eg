@@ -26,37 +26,50 @@
   text-align: center;
 }
 
-.next-question {
-  margin-top: 1rem;
-}
-
 
 
 .session-stats {
   position: relative;
   top: 6rem;
   text-align: center;
+  color: white;
+  font-size: 1.5rem;
 }
 
 
 /* STYLES */
-.answer-button {
+.answer-button, .next-question button {
   margin-left: 1rem;
-  width: 4rem;
+  width: 5.5rem;
+  height: 2.5rem;
+  align-self: flex-end;
   border-radius: 10px;
-  background-color: white;
-  border: 1px solid black;
-  color: black;
+  font-size: 1.2rem;
+  background-color: transparent;
+  border: 3px solid white;
+  color: white;
+}
+
+.next-question button {
+  margin: 1rem 0 0 0;
+  width: 10rem;
+  height: 2.5rem;
+}
+
+.answer-button:hover, .next-question button:hover {
+  position: relative;
+  top: -2px;
+  box-shadow: 4px 8px #5e5e5e7a;
 }
 
 .fieldset-answer input {
-  color: #000;
+  color: #fff;
   border: none;
   background-color: transparent;
   width: 14rem;
-  height: 2rem;
-  font-size: 16px;
-  border-bottom: 1px solid black;
+  height: 3rem;
+  font-size: 2rem;
+  border-bottom: 2px solid white;
 }
 
 .fieldset-answer input::placeholder {
@@ -77,5 +90,6 @@
 @media screen and (max-width: 700px) {
   .session-stats {
     top: 3rem;
+    font-size: 1.2rem;
   }
 }
