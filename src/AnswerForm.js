@@ -20,6 +20,7 @@ class AnswerForm extends Component {
   }
 
   nextQuestion() {
+    // TODO: focus input
     this.props.dispatch(getQuestion());
   }
 
@@ -43,24 +44,27 @@ class AnswerForm extends Component {
     }
 
     return (
-      <div className='answer-form-wrapper'>
-        <form className='answer-form' onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-          <div className='fieldset-answer'>
-            <label htmlFor='answer'>Answer</label>
-            <Field
-              component={Input}
-              type='text'
-              name='answer'
-              placeholder='answer'
-              validate={[required, notEmpty]} />
-          </div>
-          <button type='submit' disabled={this.props.pristine || this.props.submitting} className='answer-button'>Answer</button>
-        </form>
+      <div>
+        <div className='answer-form-wrapper'>
+          <form className='answer-form' onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+            <div className='fieldset-answer'>
+              <label htmlFor='answer'>Answer</label>
+              <Field
+                component={Input}
+                type='text'
+                name='answer'
+                placeholder='answer...'
+                focus
+                validate={[required, notEmpty]} />
+            </div>
+            <button type='submit' disabled={this.props.pristine || this.props.submitting} className='answer-button'>Answer</button>
+          </form>
+        </div>
         <div className='result'>
           {this.props.answer}
+          <div className='next-question'>{nextQuestion}</div>
         </div>
-        <div className='next-question'>{nextQuestion}</div>
-        <div className='session-stats'><p>Questions answered: {this.props.questionCount}</p></div>
+        <div className='session-stats'><p>Session progress: {this.props.questionCount} / 10</p></div>
       </div>
     )
   }

@@ -1,7 +1,7 @@
 /* LAYOUT */
 .quiz-container {
-  height: 94vh;
-  width: 100vw;
+  height: 95vh;
+  /* width: 100vw; */
   display: flex;
   flex-direction: row;
 }
@@ -11,28 +11,33 @@
   display: flex;
   justify-content: center;;
   align-items: center;
-  padding-left: 1rem;
-  background-color: green
+  background-color: #484D6D;
 }
 
-.answer-form{
+.question-text {
+  color: #FFD166;
+  font-size: 2rem;
+  line-height: 1.4;
+  width: 70%;
+  max-height: 80%;
+  text-align: center;
+}
+
+.answer-form-component {
   flex: 0 0 50%;
   display: flex;
   justify-content: center;;
   align-items: center;
-  background-color: yellow;
+  background-color: #57A773
 }
 
 /* MEDIA QUERIES */
 @media screen and (max-width: 700px) {
   .quiz-container {
-    height: 100vh;
-    background-color: red;
-    display: flex;
     flex-direction: column;
   }
 
-  .question {
-    padding-right: 1rem;
+  .question-text {
+    font-size: 1.4rem;
   }
 }
