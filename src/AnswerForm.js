@@ -4,7 +4,7 @@ import Input from './Input';
 import { required, notEmpty } from './validators'
 import { connect } from 'react-redux';
 import RequiresLogin from './Requires-Login';
-import { answerQuestion, getQuestion } from './actions/questions';
+import { answerQuestion, getQuestion, increaseQuestionCount } from './actions/questions';
 
 class AnswerForm extends Component {
   onSubmit(values) {
@@ -13,6 +13,7 @@ class AnswerForm extends Component {
 
     return this.props.dispatch(answerQuestion(answer))
       .then(() => this.props.dispatch(reset('answer')))
+      .then(() => this.props.dispatch(increaseQuestionCount()))
   }
 
   nextQuestion() {
@@ -23,13 +24,19 @@ class AnswerForm extends Component {
   render() {
     let nextQuestion;
 
-    console.log(this.props.answer);
     if (this.props.answer === null) {
       nextQuestion = null;
     } else {
       nextQuestion = <div className='next-question-button'>
         <button type='button' onClick={() => this.nextQuestion()}>Next question</button>
       </div>
+    }
+
+    if (this.props.questionCount === 10) {
+      console.log('10');
+      //TODO: dispatch POST stats to backend, notify user they have completed a session, reset questionsAnswered to zero
+      // dispatch(sendStats(correct, incorrect)) POST session info to backend
+      // dispatch(resetSession())
     }
 
     return (
@@ -49,13 +56,15 @@ class AnswerForm extends Component {
           {this.props.answer}
         </div>
         {nextQuestion}
+        <h1>Questions answered: {this.props.questionCount}</h1>
       </div>
     )
   }
 }
 
 export const mapStateToProps = (state, props) => ({
-  answer: state.questions.result
+  answer: state.questions.result,
+  questionCount: state.stats.questionsAnswered
 })
 
 export default reduxForm({
