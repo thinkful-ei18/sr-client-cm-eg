@@ -88,12 +88,14 @@ export const answerQuestion = (answer) => (dispatch, getState) => {
   })
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
-    //TODO: re-write for new endpoint
     .then(({ result }) => {
-      // TODO: if correct / incorrect
-      // dispatch(questionCorrect())
-      // dispatch(questionIncorrect())
-      dispatch(resultSuccess(result))
+      console.log(result);
+      if (result.boolean === true) {
+        dispatch(questionCorrect())
+      } else {
+        dispatch(questionIncorrect())
+      }
+      dispatch(resultSuccess(result.text))
     })
     .catch(err => {
       dispatch(resultError());
