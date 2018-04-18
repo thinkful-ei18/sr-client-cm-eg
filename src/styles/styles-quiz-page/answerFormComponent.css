@@ -1,0 +1,49 @@
+/* LAYOUT */
+.answer-form-wrapper {
+  background-color: green;
+  
+}
+
+.answer-form {
+  display: flex;
+  flex-direction: row;
+}
+
+.fieldset-answer {
+  
+}
+
+.result {
+  
+}
+
+.next-question {
+  
+}
+
+.session-stats {
+  
+}
+
+
+/* STYLES */
+.answer-button {
+  
+}
+
+.fieldset-answer input {
+  border: none;
+  background-color: transparent;
+  width: 14rem;
+  height: 2rem;
+  font-size: 16px;
+  border-bottom: 1px solid black;
+}
+
+.fieldset-answer input:focus {
+  outline: none;
+}
+
+.fieldset-answer label {
+  display: none
+}

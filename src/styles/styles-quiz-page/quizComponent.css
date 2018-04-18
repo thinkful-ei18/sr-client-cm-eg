@@ -1,0 +1,38 @@
+/* LAYOUT */
+.quiz-container {
+  height: 94vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+}
+
+.question {
+  flex: 0 0 50%;
+  display: flex;
+  justify-content: center;;
+  align-items: center;
+  padding-left: 1rem;
+  background-color: green
+}
+
+.answer-form{
+  flex: 0 0 50%;
+  display: flex;
+  justify-content: center;;
+  align-items: center;
+  background-color: yellow;
+}
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 700px) {
+  .quiz-container {
+    height: 100vh;
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .question {
+    padding-right: 1rem;
+  }
+}

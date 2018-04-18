@@ -1,0 +1,45 @@
+/* LAYOUT */
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+}
+
+.home {
+  flex: 0 0 50%;
+  padding-left: 1rem;
+}
+
+.navbar-logged-in {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.navbar-logged-out {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+/* STYLES */
+.nav a {
+  text-decoration: none;
+  color: #000;
+}
+
+.nav a:hover {
+  color: red;
+}
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 700px) {
+  .home {
+    flex: 0 0 30%;
+    padding-left: 1rem;
+  }
+}

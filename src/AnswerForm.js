@@ -6,6 +6,9 @@ import { connect } from 'react-redux';
 import RequiresLogin from './Requires-Login';
 import { answerQuestion, getQuestion, increaseQuestionCount } from './actions/questions';
 
+// styles
+import './styles/styles-quiz-page/answerFormComponent.css';
+
 class AnswerForm extends Component {
   onSubmit(values) {
     console.log(values);
@@ -48,15 +51,16 @@ class AnswerForm extends Component {
               component={Input}
               type='text'
               name='answer'
+              placeholder='answer'
               validate={[required, notEmpty]} />
           </div>
-          <button type='submit' disabled={this.props.pristine || this.props.submitting}>Answer</button>
+          <button type='submit' disabled={this.props.pristine || this.props.submitting} className='answer-button'>Answer</button>
         </form>
-        <div className='answer'>
+        <div className='result'>
           {this.props.answer}
         </div>
-        {nextQuestion}
-        <h1>Questions answered: {this.props.questionCount}</h1>
+        <div className='next-question'>{nextQuestion}</div>
+        <div className='session-stats'><p>Questions answered: {this.props.questionCount}</p></div>
       </div>
     )
   }
