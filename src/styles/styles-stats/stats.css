@@ -1,36 +1,60 @@
 .question-score-container {
-  border:1px solid black;
-  margin-top:2em;
-  max-width:85%;
-  margin:0 auto;
-  border-radius:5px;
-  padding-bottom:1em;
-  background-color:#EEEEEE
+  margin: 2rem;
+}
+
+.questions-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width:99vw;
+  height:auto;
+}
+
+.session-info-stats-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.stats-page h1 {
+  margin-top: 3rem;
+  font-size: 2rem;
+  text-align: center
+}
+
+.session-info-stats-page p {
+  margin-top: 2rem;
+  font-size: 1.2rem;
 }
 
 .question-score-header {
   text-align:center;
-  padding:10px;
-  
+  font-size: 2rem;
+  margin-top: 5rem;
 }
 
 .question-stats-box {
-  border:1px solid black;
-  max-width:85%;
-  margin:0 auto;
-  padding:5px;
-  padding-left:10px;
   display:flex;
-  border-radius:4px;
-  background-color:white;
+  flex-direction: row;
+  /* justify-content: flex-end; */
+  align-items: center;
+
+  width:420px;
+  height:250px;
+  margin: 1rem;
+
+  border-radius: 15px;
+  overflow: hidden;
+  border: 3px solid black;
+
 }
 
-.score {
-  margin-right:2em;
-  border-right:1px solid black;
-  padding:10px;
+.question-stats-box:hover {
+  position: relative;
+  top: -2px;
+  box-shadow: 4px 8px #5e5e5e7a;
 }
-
 
 /* Complete Session CSS */
 
@@ -38,4 +62,38 @@
   position:fixed;
   top:calc(20%);
   left:calc(30%);
+}
+
+/* INDIVIDUAL CARDS */
+
+.question-box-question {
+  text-align: left;
+  margin: 0 10px;
+  font-size: 1.2rem;
+  line-height: 1.2;
+}
+
+.question-box-score {
+  vertical-align: middle;
+  order: -1;
+  font-size: 1.5rem;
+  height: 100%;
+  align-self: center;
+  /* margin: 0 1.5rem; */
+  padding: 0 2rem;
+  text-align: center;
+  /* background-color: #fff; */
+  line-height: 250px;
+}
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 700px) {
+  .question-stats-box {
+    /* width:420px; */
+    height:auto;
+  }
+
+  .question-score-container {
+    margin: 0;
+  }
 }
