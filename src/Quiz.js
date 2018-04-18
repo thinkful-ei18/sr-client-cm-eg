@@ -16,7 +16,7 @@ class Quiz extends Component {
     return (
       <div className='quiz-container'>
         <div className='question'><h2>{this.props.question}</h2></div>
-        <div className='answer-form'><AnswerForm /></div>
+        <div className='answer-form-component'><AnswerForm /></div>
       </div>
     )
   }

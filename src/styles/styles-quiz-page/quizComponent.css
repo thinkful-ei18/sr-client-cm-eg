@@ -15,7 +15,7 @@
   background-color: green
 }
 
-.answer-form{
+.answer-form-component {
   flex: 0 0 50%;
   display: flex;
   justify-content: center;;

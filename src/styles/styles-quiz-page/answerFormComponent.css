@@ -1,16 +1,21 @@
 /* LAYOUT */
 .answer-form-wrapper {
   background-color: green;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* position: relative; */
+  /* flex-wrap: wrap; */
+  justify-content: center;
+  align-items: center;
   
 }
 
 .answer-form {
-  display: flex;
-  flex-direction: row;
+  background-color: red;
 }
 
 .fieldset-answer {
-  
 }
 
 .result {
@@ -22,7 +27,11 @@
 }
 
 .session-stats {
-  
+  /* flex: 0 0 100%; */
+  /* position: fixed;
+  top: 5;
+  left: 5; */
+
 }
 
 
@@ -32,12 +41,17 @@
 }
 
 .fieldset-answer input {
+  color: #000;
   border: none;
   background-color: transparent;
   width: 14rem;
   height: 2rem;
   font-size: 16px;
   border-bottom: 1px solid black;
+}
+
+.fieldset-answer input::placeholder {
+  color: blue;
 }
 
 .fieldset-answer input:focus {

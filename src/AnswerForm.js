@@ -60,7 +60,7 @@ class AnswerForm extends Component {
           {this.props.answer}
         </div>
         <div className='next-question'>{nextQuestion}</div>
-        <div className='session-stats'><p>Questions answered: {this.props.questionCount}</p></div>
+        <div className='session-stats'><p>Session progress: {this.props.questionCount} / 10</p></div>
       </div>
     )
   }
