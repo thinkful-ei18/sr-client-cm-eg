@@ -13,13 +13,21 @@ class Quiz extends Component {
   }
 
   render() {
+    let color = this.props.boolean ? 'green' : 'red'
+
+
+    const answerStyle = {
+      backgroundColor: `${color}`
+    };
+
+
     return (
 
       <div className='quiz-container'>
         <div className='question'>
           <div className='question-text'><h2>{this.props.question}</h2></div>
         </div>
-        <div className='answer-form-component'><AnswerForm /></div>
+        <div className='answer-form-component' style={answerStyle} ><AnswerForm /></div>
       </div>
 
     )
@@ -28,6 +36,7 @@ class Quiz extends Component {
 
 export const mapStateToProps = (state, props) => ({
   loggedIn: state.auth.currentUser !== null,
+  boolean: state.questions.resultBoolean,
   question: state.questions.question ? state.questions.question : null
 });
 

@@ -7,6 +7,7 @@ import { clearAuthToken } from "../localStorage";
 const initialState = {
   question: null,
   result: null,
+  resultBoolean: null,
   loading: false,
   error: false,
 };
@@ -48,6 +49,7 @@ export const questionReducer = (state = initialState, action) => {
       return {
         ...state,
         result: action.result,
+        resultBoolean: action.boolean,
         loading: false,
         error: false
       }

@@ -48,12 +48,20 @@
   overflow: hidden;
   border: 3px solid black;
 
+  -webkit-box-shadow: 10px 10px 5px -5px rgba(0,0,0,0.19);
+  -moz-box-shadow: 10px 10px 5px -5px rgba(0,0,0,0.19);
+  box-shadow: 10px 10px 5px -5px rgba(0,0,0,0.19);
+
+
+
 }
 
 .question-stats-box:hover {
-  position: relative;
+  /* position: relative;
   top: -2px;
-  box-shadow: 4px 8px #5e5e5e7a;
+  -webkit-box-shadow: 10px 10px 5px -5px rgba(0, 0, 0, 0.329);
+  -moz-box-shadow: 10px 10px 5px -5px rgba(0, 0, 0, 0.329);
+  box-shadow: 10px 10px 5px -5px rgba(0, 0, 0, 0.329); */
 }
 
 /* Complete Session CSS */
@@ -84,6 +92,8 @@
   text-align: center;
   /* background-color: #fff; */
   line-height: 250px;
+  -webkit-clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+  clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
 }
 
 /* MEDIA QUERIES */

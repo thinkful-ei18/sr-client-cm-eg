@@ -28,7 +28,10 @@
   display: flex;
   justify-content: center;;
   align-items: center;
-  background-color: #00acc1
+  -webkit-transition: background-color 500ms linear;
+    -ms-transition: background-color 500ms linear;
+    transition: background-color 500ms linear;
+  /* background-color: #00acc1 */
 }
 
 /* MEDIA QUERIES */

@@ -8,7 +8,7 @@ export default class QuestionBox extends React.Component {
 
 
   render() {
-    const color = randomColor(0.60, 0.85).hexString();
+    const color = randomColor(0.60, 0.99).hexString();
     const boxStyle = {
       border: `4px solid ${color}`
     };

@@ -40,9 +40,10 @@ export const resultError = error => ({
 })
 
 export const RESULT_SUCCESS = 'RESULT_SUCCESS';
-export const resultSuccess = result => ({
+export const resultSuccess = (result, boolean) => ({
   type: RESULT_SUCCESS,
-  result
+  result,
+  boolean
 })
 
 export const INCREASE_QUESTION_COUNT = 'INCREASE_QUESTION_COUNT'
@@ -95,7 +96,7 @@ export const answerQuestion = (answer) => (dispatch, getState) => {
       } else {
         dispatch(questionIncorrect())
       }
-      dispatch(resultSuccess(result.text))
+      dispatch(resultSuccess(result.text, result.boolean))
     })
     .catch(err => {
       dispatch(resultError());
