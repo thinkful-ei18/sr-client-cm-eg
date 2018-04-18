@@ -1,16 +1,17 @@
 /* LAYOUT */
 .quiz-container {
-  height: 100vh;
-  background-color: red;
+  height: 94vh;
+  width: 100vw;
   display: flex;
   flex-direction: row;
 }
 
-.answer {
+.question {
   flex: 0 0 50%;
   display: flex;
   justify-content: center;;
   align-items: center;
+  padding-left: 1rem;
   background-color: green
 }
 
@@ -29,5 +30,9 @@
     background-color: red;
     display: flex;
     flex-direction: column;
+  }
+
+  .question {
+    padding-right: 1rem;
   }
 }

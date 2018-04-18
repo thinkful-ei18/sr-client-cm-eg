@@ -50,13 +50,13 @@ class AnswerForm extends Component {
               name='answer'
               validate={[required, notEmpty]} />
           </div>
-          <button type='submit' disabled={this.props.pristine || this.props.submitting}>Answer</button>
+          <button type='submit' disabled={this.props.pristine || this.props.submitting} className='answer-button'>Answer</button>
         </form>
-        <div className='answer'>
+        <div className='result'>
           {this.props.answer}
         </div>
-        {nextQuestion}
-        <h1>Questions answered: {this.props.questionCount}</h1>
+        <div className='next-question'>{nextQuestion}</div>
+        <div className='session-stats'><p>Questions answered: {this.props.questionCount}</p></div>
       </div>
     )
   }
