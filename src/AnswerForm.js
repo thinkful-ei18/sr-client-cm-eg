@@ -4,7 +4,7 @@ import Input from './Input';
 import { required, notEmpty } from './validators'
 import { connect } from 'react-redux';
 import RequiresLogin from './Requires-Login';
-import { answerQuestion, getQuestion, increaseQuestionCount } from './actions/questions';
+import { answerQuestion, questionSubmitted, getQuestion, increaseQuestionCount } from './actions/questions';
 
 // styles
 import './styles/styles-quiz-page/answerFormComponent.css';
@@ -16,12 +16,23 @@ class AnswerForm extends Component {
 
     return this.props.dispatch(answerQuestion(answer))
       .then(() => this.props.dispatch(reset('answer')))
-      .then(() => this.props.dispatch(increaseQuestionCount()))
+      .then(() => {
+         this.props.dispatch(increaseQuestionCount())
+         this.props.dispatch(questionSubmitted());
+         this.focusMethod('.question-button');
+      })
   }
 
   nextQuestion() {
     // TODO: focus input
     this.props.dispatch(getQuestion());
+    this.props.dispatch(questionSubmitted());
+    this.focusMethod('.form-input-focus');
+  }
+
+  focusMethod = function getFocus(classname) {   
+    console.log('this ran');    
+    setTimeout(document.querySelector(classname).focus(), 500);
   }
 
 
@@ -32,7 +43,7 @@ class AnswerForm extends Component {
       nextQuestion = null;
     } else {
       nextQuestion = <div className='next-question-button'>
-        <button type='button' onClick={() => this.nextQuestion()}>Next question</button>
+        <button className='question-button' type='button' onClick={() => this.nextQuestion()}>Next question</button>
       </div>
     }
 
@@ -50,6 +61,7 @@ class AnswerForm extends Component {
             <div className='fieldset-answer'>
               <label htmlFor='answer'>Answer</label>
               <Field
+                questionSubmitted={this.props.questionSubmitted}
                 component={Input}
                 type='text'
                 name='answer'
@@ -72,7 +84,8 @@ class AnswerForm extends Component {
 
 export const mapStateToProps = (state, props) => ({
   answer: state.questions.result,
-  questionCount: state.stats.questionsAnswered
+  questionCount: state.stats.questionsAnswered,
+  questionSubmitted: state.questions.questionSubmitted
 })
 
 export default reduxForm({
