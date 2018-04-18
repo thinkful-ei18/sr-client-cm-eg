@@ -51,6 +51,11 @@ export const increaseQuestionCount = () => ({
   type: INCREASE_QUESTION_COUNT
 })
 
+export const QUESTION_SUBMITTED = 'QUESTION_SUBMITTED';
+export const questionSubmitted = () => ({
+  type:QUESTION_SUBMITTED
+})
+
 
 export const getQuestion = () => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
