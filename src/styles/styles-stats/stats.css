@@ -1,0 +1,41 @@
+.question-score-container {
+  border:1px solid black;
+  margin-top:2em;
+  max-width:85%;
+  margin:0 auto;
+  border-radius:5px;
+  padding-bottom:1em;
+  background-color:#EEEEEE
+}
+
+.question-score-header {
+  text-align:center;
+  padding:10px;
+  
+}
+
+.question-stats-box {
+  border:1px solid black;
+  max-width:85%;
+  margin:0 auto;
+  padding:5px;
+  padding-left:10px;
+  display:flex;
+  border-radius:4px;
+  background-color:white;
+}
+
+.score {
+  margin-right:2em;
+  border-right:1px solid black;
+  padding:10px;
+}
+
+
+/* Complete Session CSS */
+
+.complete-session-modal {
+  position:fixed;
+  top:calc(20%);
+  left:calc(30%);
+}
