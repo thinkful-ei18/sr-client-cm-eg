@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import RequiresLogin from './Requires-Login';
-import {fetchStats} from './actions/stats';
+import { fetchStats } from './actions/stats';
 import QuestionBox from './Questionbox';
+
+
 
 class Dashboard extends Component {
 
@@ -13,23 +15,24 @@ class Dashboard extends Component {
   render() {
     let questionStats;
     if (this.props.questionScoreStats) {
-    questionStats = this.props.questionScoreStats.map((entry,index) => {
-      return ( <QuestionBox key={index} entry={entry}/>)
-    });
-  }
+      questionStats = this.props.questionScoreStats.map((entry, index) => {
+        return (<QuestionBox key={index} entry={entry} />)
+      });
+    }
 
 
     return (
-      <div>
+      <div className='stats-page'>
         <h1> This Session: </h1>
-        <br/>
-        <h1>Correct: {this.props.correctInSession} Incorrect: {this.props.incorrectInSession}</h1>
-        <br/>
-        <h1>Your Total Score: {this.props.totalUserScore}</h1>
+        <div className='session-info-stats-page'>
+          <p>Correct: {this.props.correctInSession} Incorrect: {this.props.incorrectInSession}</p>
+          <p>Your Total Score: {this.props.totalUserScore}</p>
+        </div>
         <section className='question-score-container'>
           <div className='question-score-header'>
             Score by Questions:
           </div>
+
           <div className='questions-container'>
             {questionStats}
           </div>
