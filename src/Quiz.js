@@ -4,6 +4,9 @@ import RequiresLogin from './Requires-Login';
 import { getQuestion } from './actions/questions';
 import AnswerForm from './AnswerForm';
 
+// styles
+import './styles/styles-quiz-page/quizComponent.css';
+
 class Quiz extends Component {
   componentDidMount() {
     this.props.dispatch(getQuestion());
@@ -11,9 +14,9 @@ class Quiz extends Component {
 
   render() {
     return (
-      <div className='dashboard-container'>
-        <h1>{this.props.question}</h1>
-        <AnswerForm />
+      <div className='quiz-container'>
+        <div className='answer'><h1>{this.props.question}</h1></div>
+        <div className='answer-form'><AnswerForm /></div>
       </div>
     )
   }

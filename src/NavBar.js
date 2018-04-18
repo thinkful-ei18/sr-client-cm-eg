@@ -3,6 +3,8 @@ import { NavLink } from 'react-router-dom';
 import { clearAuth } from './actions/auth';
 import { connect } from 'react-redux';
 
+// styles
+import './styles/styles-navbar/navbar.css'
 class NavBar extends Component {
   render() {
     let NavBar;
@@ -24,7 +26,7 @@ class NavBar extends Component {
     }
     return (
       <nav className='nav'>
-        <NavLink to='/'>Home</NavLink>
+        <NavLink to='/' className='home'>Home</NavLink>
         {NavBar}
       </nav>
     )
