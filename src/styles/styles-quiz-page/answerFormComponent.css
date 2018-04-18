@@ -12,32 +12,37 @@
 }
 
 .answer-form {
-  background-color: red;
+  border: 1px solid black;
 }
 
 .fieldset-answer {
+  max-height: 3rem;
+  max-width: 15rem;
 }
 
 .result {
-  
+  border: 1px solid red;
+  width: 22rem;
+  height: 4rem;
+  max-height: 4rem;
+  text-align: center;
 }
 
 .next-question {
-  
+  margin-top: 1rem;
 }
 
-.session-stats {
-  /* flex: 0 0 100%; */
-  /* position: fixed;
-  top: 5;
-  left: 5; */
 
+
+.session-stats {
+  position: relative;
+  top: 4rem;
 }
 
 
 /* STYLES */
 .answer-button {
-  
+
 }
 
 .fieldset-answer input {
