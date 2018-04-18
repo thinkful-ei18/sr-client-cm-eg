@@ -61,6 +61,12 @@
 .complete-session-modal {
   position:fixed;
   top:calc(20%);
+  left:calc(20%);
+  height:60%;
+  width:60%;
+  background-color:#EEEEEE;
+  border:1px solid black;
+  border-radius:10px;
   left:calc(30%);
 }
 

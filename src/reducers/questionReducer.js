@@ -1,4 +1,4 @@
-import { QUESTION_SUCCESS, QUESTION_REQUEST, QUESTION_ERROR } from "../actions/questions";
+import { QUESTION_SUCCESS, QUESTION_REQUEST, QUESTION_ERROR, QUESTION_SUBMITTED } from "../actions/questions";
 import { RESULT_ERROR, RESULT_REQUEST, RESULT_SUCCESS } from '../actions/questions';
 import { CLEAR_AUTH } from "../actions/auth";
 import { clearAuthToken } from "../localStorage";
@@ -9,6 +9,7 @@ const initialState = {
   result: null,
   loading: false,
   error: false,
+  questionSubmitted: false
 };
 
 export const questionReducer = (state = initialState, action) => {
@@ -62,6 +63,11 @@ export const questionReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         error: action.error
+      }
+    case QUESTION_SUBMITTED:
+      return {
+        ...state,
+        questionSubmitted:!state.questionSubmitted
       }
     default: return state;
   }

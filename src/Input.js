@@ -28,6 +28,8 @@ export default class Input extends React.Component {
           {warning}
         </label>
         <input
+          className={this.props.className|| 'form-input-focus'}
+          disabled={this.props.questionSubmitted ? true : false}
           {...this.props.input}
           id={this.props.input.name}
           type={this.props.type}
