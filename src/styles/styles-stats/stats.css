@@ -5,7 +5,7 @@
   margin:0 auto;
   border-radius:5px;
   padding-bottom:1em;
-  background-color:#EEEEEE
+  background-color:red
 }
 
 .question-score-header {
@@ -15,7 +15,7 @@
 }
 
 .question-stats-box {
-  border:1px solid black;
+  border:1px solid red;
   max-width:85%;
   margin:0 auto;
   padding:5px;
