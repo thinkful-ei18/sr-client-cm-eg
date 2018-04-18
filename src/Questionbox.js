@@ -6,14 +6,14 @@ export default class QuestionBox extends React.Component {
 
 
     return (
-        <div className='question-stats-box' data-id={this.props.id}>
-          <div className='score'>
-            {this.props.entry.score} 
-          </div>
-          <div className='question-box-question'>
+      <div className='question-stats-box' data-id={this.props.id}>
+        <div className='question-box-question'>
           {this.props.entry.question}
-          </div>
         </div>
+        <div className='question-box-score'>
+          {this.props.entry.score}
+        </div>
+      </div>
     )
 
   }
