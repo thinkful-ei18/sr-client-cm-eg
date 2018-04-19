@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { withRouter, Redirect } from 'react-router-dom';
+import { withRouter, Redirect, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { signup, login } from './actions/auth';
@@ -77,6 +77,7 @@ export class SignUp extends Component {
           </div>
           <button type='submit' disabled={this.props.pristine || this.props.submitting}>Register</button>
         </form>
+        <p>Already have an account? Login <Link to='/login'>here</Link></p>
       </div>
     )
   }

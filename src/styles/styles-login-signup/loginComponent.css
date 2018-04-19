@@ -22,3 +22,11 @@
 .login-form-container button {
   margin-top: .2rem;
 }
+
+.login-form-container p {
+  margin-top: 1rem;
+}
+
+.login-form-container a {
+  color: #000;
+}
