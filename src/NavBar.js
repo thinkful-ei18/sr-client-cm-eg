@@ -26,7 +26,7 @@ class NavBar extends Component {
     }
     return (
       <nav className='nav'>
-        <NavLink to='/' className='home'>Home</NavLink>
+        <NavLink to='/' className='home'>DSAwesome</NavLink>
         {NavBar}
       </nav>
     )
