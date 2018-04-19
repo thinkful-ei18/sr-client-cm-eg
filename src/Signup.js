@@ -26,7 +26,7 @@ export class SignUp extends Component {
   render() {
     return (
       <div className='signup-form-wrapper'>
-        {this.props.loggedIn ? (<Redirect to='/dashboard' />) : ''}
+        {this.props.loggedIn ? (<Redirect to='/quiz' />) : ''}
         <h1>Signup</h1>
         <form className='signup-form' onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
           <div className='fieldset-sign'>

@@ -26,7 +26,7 @@ export class Login extends Component {
 
     return (
       <div className='login-form-container'>
-        {this.props.loggedIn ? (<Redirect to='/dashboard' />) : ''}
+        {this.props.loggedIn ? (<Redirect to='/quiz' />) : ''}
         <form className='login-form' onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
           <h1>Log in</h1>
           <div className='fieldset-login'>
