@@ -32,7 +32,6 @@ class AnswerForm extends Component {
   }
 
   focusMethod = function getFocus(classname) {
-    console.log('this ran');
     setTimeout(document.querySelector(classname).focus(), 500);
   }
 
