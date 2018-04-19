@@ -13,8 +13,7 @@ const initialState = {
   questionsAnswered: 0,
   questionScoreStats: null,
   sessionsCompleted: 0,
-  // TODO: change!
-  showModal: true
+  showModal: false
 };
 
 export const statsReducer = (state = initialState, action) => {
