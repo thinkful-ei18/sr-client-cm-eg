@@ -11,7 +11,6 @@ import './styles/styles-quiz-page/answerFormComponent.css';
 
 class AnswerForm extends Component {
   onSubmit(values) {
-    console.log(values);
     const { answer } = values;
 
     return this.props.dispatch(answerQuestion(answer))
@@ -48,7 +47,6 @@ class AnswerForm extends Component {
     }
 
     if (this.props.questionCount === 10) {
-      console.log('10');
       //TODO: dispatch POST stats to backend, notify user they have completed a session, reset questionsAnswered to zero
       // dispatch(sendStats(correct, incorrect)) POST session info to backend
       // dispatch(resetSession())
@@ -61,6 +59,7 @@ class AnswerForm extends Component {
             <div className='fieldset-answer'>
               <label htmlFor='answer'>Answer</label>
               <Field
+                singleInput={true}
                 questionSubmitted={this.props.questionSubmitted}
                 component={Input}
                 type='text'
