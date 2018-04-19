@@ -6,8 +6,11 @@ import { login } from './actions/auth';
 
 import Input from './Input';
 import { required, notEmpty, isTrimmed, length } from './validators';
-const usernameLength = length({ min: 5, max: 72 });
 
+// styles
+import './styles/styles-login-signup/loginComponent.css';
+
+const usernameLength = length({ min: 5, max: 72 });
 
 
 export class Login extends Component {
@@ -22,7 +25,7 @@ export class Login extends Component {
   render() {
 
     return (
-      <div>
+      <div className='login-form-container'>
         {this.props.loggedIn ? (<Redirect to='/dashboard' />) : ''}
         <form className='login-form' onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
           <h1>Log in</h1>

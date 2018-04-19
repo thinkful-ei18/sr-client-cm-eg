@@ -2,11 +2,12 @@
 
 .logout-modal-container {
   background-color:#EEEEEE;
-  width:40em;
-  position:fixed;
-  top:10em;
-  left:calc(10%);
-  padding:2em;
+  width:40vw;
+  z-index: 2;
+  position:absolute;
+  top:3.5rem;
+  right:10px;
+  padding:1.5rem;
   border-radius:10px;
   text-align:center;
   box-shadow: 4px 4px gray;
@@ -28,5 +29,11 @@
   margin:2px;
   margin-right:1em;
   margin-left:1em;
+}
 
+@media screen and (max-width: 700px) {
+  .logout-modal-container {
+    width:70vw;
+    padding:1rem;
+  }
 }

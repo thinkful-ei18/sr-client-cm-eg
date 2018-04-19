@@ -7,6 +7,10 @@ import { signup, login } from './actions/auth';
 import Input from './Input';
 
 import { required, notEmpty, length, matches, isTrimmed } from './validators';
+
+// styles
+import './styles/styles-login-signup/signupComponent.css';
+
 const passwordLength = length({ min: 6, max: 72 });
 const passwordMatches = matches('password');
 
@@ -21,7 +25,7 @@ export class SignUp extends Component {
 
   render() {
     return (
-      <div className='form-wrapper'>
+      <div className='signup-form-wrapper'>
         {this.props.loggedIn ? (<Redirect to='/dashboard' />) : ''}
         <h1>Signup</h1>
         <form className='signup-form' onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
@@ -31,7 +35,8 @@ export class SignUp extends Component {
               component={Input}
               type='text'
               name='firstName'
-              placeholder="First Name"
+              focus
+              // placeholder="First Name"
               validate={[required, notEmpty]} />
           </div>
           <div className='fieldset-sign'>
@@ -40,7 +45,7 @@ export class SignUp extends Component {
               component={Input}
               type='text'
               name='lastName'
-              placeholder="Last Name"
+              // placeholder="Last Name"
               validate={[required, notEmpty]} />
           </div>
           <div className='fieldset-sign'>
@@ -49,7 +54,7 @@ export class SignUp extends Component {
               component={Input}
               type='text'
               name='username'
-              placeholder="Username"
+              // placeholder="Username"
               validate={[required, notEmpty, isTrimmed]} />
           </div>
           <div className='fieldset-sign'>
@@ -58,7 +63,7 @@ export class SignUp extends Component {
               component={Input}
               type='password'
               name='password'
-              placeholder="Password"
+              // placeholder="Password"
               validate={[required, notEmpty, isTrimmed, passwordLength]} />
           </div>
           <div className='fieldset-sign'>
@@ -67,7 +72,7 @@ export class SignUp extends Component {
               component={Input}
               type='password'
               name='confirmPassword'
-              placeholder="Confirm Password"
+              // placeholder="Confirm Password"
               validate={[required, notEmpty, isTrimmed, passwordMatches, passwordLength]} />
           </div>
           <button type='submit' disabled={this.props.pristine || this.props.submitting}>Register</button>
