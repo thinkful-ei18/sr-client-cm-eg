@@ -17,9 +17,9 @@ class AnswerForm extends Component {
     return this.props.dispatch(answerQuestion(answer))
       .then(() => this.props.dispatch(reset('answer')))
       .then(() => {
-         this.props.dispatch(increaseQuestionCount())
-         this.props.dispatch(questionSubmitted());
-         this.focusMethod('.question-button');
+        this.props.dispatch(increaseQuestionCount())
+        this.props.dispatch(questionSubmitted());
+        this.focusMethod('.question-button');
       })
   }
 
@@ -30,8 +30,8 @@ class AnswerForm extends Component {
     this.focusMethod('.form-input-focus');
   }
 
-  focusMethod = function getFocus(classname) {   
-    console.log('this ran');    
+  focusMethod = function getFocus(classname) {
+    console.log('this ran');
     setTimeout(document.querySelector(classname).focus(), 500);
   }
 
