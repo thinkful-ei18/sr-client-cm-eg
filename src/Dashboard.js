@@ -22,18 +22,17 @@ class Dashboard extends Component {
       });
     }
     let leaderBoard;
-    if (this.props.leaderboard) { 
+    if (this.props.leaderboard) {
       leaderBoard = this.props.leaderboard.map(user => {
-        return <LeaderBoardUnit user={user} key={user.id}/>
+        return <LeaderBoardUnit user={user} key={user.id} />
       })
     }
 
 
     return (
       <div className='stats-page'>
-        <h1> Your Session: </h1>
+        <h1> {this.props.userName ? `${this.props.userName.charAt(0).toUpperCase() + this.props.userName.slice(1)}'s` : 'Your'} Session: </h1>
         <p className='user-stats-greeting'>
-        Hi {this.props.userName ? this.props.userName : ''}!
         </p>
         <div className='session-info-stats-page'>
           <p>Correct: {this.props.correctInSession} Incorrect: {this.props.incorrectInSession}</p>
@@ -70,7 +69,7 @@ export const mapStateToProps = (state, props) => ({
   totalUserScore: state.stats.totalUserScore,
   questionScoreStats: state.stats.questionScoreStats,
   authToken: state.auth.authToken,
-  leaderboard:state.stats.leaderboard,
+  leaderboard: state.stats.leaderboard,
   userName: state.auth.currentUser.firstname
 })
 

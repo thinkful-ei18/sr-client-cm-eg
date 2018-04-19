@@ -1,8 +1,10 @@
+
 .login-form-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: 4rem;
 }
 
 .login-form-container h1 {
@@ -21,4 +23,12 @@
 
 .login-form-container button {
   margin-top: .2rem;
+}
+
+.login-form-container p {
+  margin-top: 1rem;
+}
+
+.login-form-container a {
+  color: #000;
 }

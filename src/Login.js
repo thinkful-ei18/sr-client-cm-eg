@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Field, reduxForm, focus } from 'redux-form';
 import { connect } from 'react-redux';
-import { withRouter, Redirect } from 'react-router-dom';
+import { withRouter, Redirect, Link } from 'react-router-dom';
 import { login } from './actions/auth';
 
 import Input from './Input';
@@ -26,7 +26,7 @@ export class Login extends Component {
 
     return (
       <div className='login-form-container'>
-        {this.props.loggedIn ? (<Redirect to='/dashboard' />) : ''}
+        {this.props.loggedIn ? (<Redirect to='/quiz' />) : ''}
         <form className='login-form' onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
           <h1>Log in</h1>
           <div className='fieldset-login'>
@@ -49,6 +49,7 @@ export class Login extends Component {
           <button type='submit' disabled={this.props.pristine || this.props.submitting}>Login</button>
         </form >
         {this.props.error}
+        <p>New user? Sign-up <Link to='/signup'>here</Link></p>
       </div >
 
     );

@@ -3,6 +3,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: 4rem;
 }
 
 .signup-form-wrapper h1 {
@@ -21,4 +22,14 @@
 
 .signup-form-wrapper button {
   margin-top: .2rem;
+}
+
+.signup-form-wrapper p {
+  padding-top: 1rem;
+  text-align: center;
+  margin: auto;
+}
+
+.signup-form-wrapper a {
+  color: #000;
 }
