@@ -9,6 +9,7 @@ import { answerQuestion, questionSubmitted, getQuestion, increaseQuestionCount }
 // styles
 import './styles/styles-quiz-page/answerFormComponent.css';
 
+
 class AnswerForm extends Component {
   onSubmit(values) {
     console.log(values);
@@ -45,13 +46,6 @@ class AnswerForm extends Component {
       nextQuestion = <div className='next-question-button'>
         <button className='question-button' type='button' onClick={() => this.nextQuestion()}>Next question</button>
       </div>
-    }
-
-    if (this.props.questionCount === 10) {
-      console.log('10');
-      //TODO: dispatch POST stats to backend, notify user they have completed a session, reset questionsAnswered to zero
-      // dispatch(sendStats(correct, incorrect)) POST session info to backend
-      // dispatch(resetSession())
     }
 
     return (

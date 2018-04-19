@@ -1,5 +1,5 @@
 import { QUESTION_CORRECT, QUESTION_INCORRECT, INCREASE_QUESTION_COUNT } from "../actions/questions";
-import {  POPULATE_STATS, RESET_SESSION, SET_ERROR } from '../actions/stats';
+import { POPULATE_STATS, RESET_SESSION, SET_ERROR } from '../actions/stats';
 
 
 
@@ -12,7 +12,8 @@ const initialState = {
   incorrect: 0,
   questionsAnswered: 0,
   questionScoreStats: null,
-  sessionsCompleted: 0
+  sessionsCompleted: 0,
+  showModal: false
 };
 
 export const statsReducer = (state = initialState, action) => {
@@ -43,19 +44,20 @@ export const statsReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         error: false,
-        questionsAnswered: 0
+        questionsAnswered: 0,
+        showModal: true
       }
-      case POPULATE_STATS:
-        return {
-          ...state,
-          totalUserScore: action.stats.overallScore,
-          questionScoreStats:action.stats.questionStats,
-          sessionsCompleted: action.stats.sessionsCompleted
-        }
-      case SET_ERROR:
+    case POPULATE_STATS:
       return {
         ...state,
-        error:true
+        totalUserScore: action.stats.overallScore,
+        questionScoreStats: action.stats.questionStats,
+        sessionsCompleted: action.stats.sessionsCompleted
+      }
+    case SET_ERROR:
+      return {
+        ...state,
+        error: true
       }
 
     default: return state;

@@ -1,0 +1,13 @@
+
+/* Complete Session CSS */
+
+.complete-session-modal {
+  position:fixed;
+  top:calc(80%);
+  left:calc(60%);
+  height:9rem;
+  width:29rem;
+  background-color:#EEEEEE;
+  border:1px solid black;
+  border-radius:10px;
+}
