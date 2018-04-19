@@ -10,7 +10,7 @@
 }
 
 .home {
-  flex: 0 0 50%;
+  flex: 0 0 65%;
   padding-left: 1rem;
 }
 
@@ -18,14 +18,18 @@
   flex: 1;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .navbar-logged-out {
   flex: 1;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
+}
+
+.navbar-logged-out:last-child, .navbar-logged-in:last-child {
+  margin-right: 2rem;
 }
 
 /* STYLES */
