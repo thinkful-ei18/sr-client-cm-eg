@@ -1,10 +1,13 @@
 import React from 'react';
 
-export default class LeaderBoard extends React.Component{
+// styles
+import './styles/styles-stats/leaderboard.css'
+
+export default class LeaderBoard extends React.Component {
 
   render() {
 
-    return(
+    return (
       <div className='leaderboard-unit'>
         <div className='leaderboard-name-box leaderboard-entry'>
           <p>Username</p>
