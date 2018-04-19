@@ -76,7 +76,7 @@
 }
 
 .fieldset-answer input::placeholder {
-  color: lightgray;
+  color: rgba(255, 255, 255, 0.788);
 }
 
 .fieldset-answer input:focus {

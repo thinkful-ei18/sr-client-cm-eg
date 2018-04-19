@@ -22,7 +22,7 @@ class Quiz extends Component {
   }
 
   render() {
-    let color = this.props.boolean ? 'green' : 'red'
+    let color = this.props.boolean ? '#5fd37c' : '#d37c5f'
 
 
     const answerStyle = {
