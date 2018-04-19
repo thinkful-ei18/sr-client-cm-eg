@@ -1,5 +1,5 @@
 import { QUESTION_CORRECT, QUESTION_INCORRECT, INCREASE_QUESTION_COUNT } from "../actions/questions";
-import { POPULATE_STATS, RESET_SESSION, SET_ERROR } from '../actions/stats';
+import { POPULATE_STATS, RESET_SESSION, SET_ERROR, CLOSE_MODAL } from '../actions/stats';
 
 
 
@@ -46,6 +46,11 @@ export const statsReducer = (state = initialState, action) => {
         error: false,
         questionsAnswered: 0,
         showModal: true
+      }
+    case CLOSE_MODAL:
+      return {
+        ...state,
+        showModal: false
       }
     case POPULATE_STATS:
       return {

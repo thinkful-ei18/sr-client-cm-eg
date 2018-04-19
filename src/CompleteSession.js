@@ -1,20 +1,15 @@
 import React, { Component } from 'react';
-import { incrementSessions, resetSession } from '../src/actions/stats';
-import { questionSubmitted } from './actions/questions';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 // styles
 import './styles/styles-quiz-page/modalComponent.css';
+import { closeModal } from './actions/stats';
 
 export class CompleteSession extends Component {
   onClick() {
     console.log('closed');
-    // state, show modal false
-    // MOVED LOGIC TO ANSWERFORM
-    // this.props.dispatch(incrementSessions());
-    // this.props.dispatch(resetSession());
-    // this.props.dispatch(questionSubmitted());
+    this.props.dispatch(closeModal());
   }
 
 
@@ -31,4 +26,8 @@ export class CompleteSession extends Component {
   }
 }
 
-export default connect()(CompleteSession);
+export const mapStateToProps = (state, props) => ({
+  showModal: state.stats.showModal
+})
+
+export default connect(mapStateToProps)(CompleteSession);
