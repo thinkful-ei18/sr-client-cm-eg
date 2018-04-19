@@ -7,8 +7,17 @@ export class Home extends Component {
   render() {
     return (
       <div className='homepage-container'>
-        <div className='top-clip'>Hi!</div>
-        <h1>I am the homepage</h1>
+
+        <header>
+          <div className="header-top-diagonal"></div>
+          <h1>Ready to learn?</h1>
+          <p>Welcome to DSAwesome, our quiz app uses a Spaced Repition Algorithm to help you get the most out of your studying.</p>
+        </header>
+        <div className='top-end'></div>
+
+        <section>
+
+        </section>
       </div>
     )
   }
