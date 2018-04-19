@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import { clearAuth } from './actions/auth';
+import { toggleLogoutModal } from './actions/auth';
 import { connect } from 'react-redux';
 
 // styles
@@ -13,8 +13,8 @@ class NavBar extends Component {
       NavBar = <div className='navbar-logged-in'>
         <NavLink to='/quiz'>Quiz</NavLink>
         <NavLink to='/dashboard'>Dashboard</NavLink>
-        <NavLink to='/' onClick={() => {
-          this.props.dispatch(clearAuth())
+        <NavLink to='#' onClick={() => {
+          this.props.dispatch(toggleLogoutModal());
         }}>Logout</NavLink>
       </div>
     } else if (!this.props.loggedIn) {

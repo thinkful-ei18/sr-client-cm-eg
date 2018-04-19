@@ -37,7 +37,6 @@ export const incrementSessions = () => dispatch => {
     },
   })
   .then(response => {
-    console.log('Congratulations, you completed a session!');
   })
   .catch(err => {
     dispatch(setError(err));
@@ -45,8 +44,9 @@ export const incrementSessions = () => dispatch => {
 };
 
 export const fetchStats = () => dispatch => {
+
   const authToken = localStorage.getItem('authToken');
-  axios({
+  setTimeout(axios({
     url:`${API_BASE_URL}/stats`,
     method:'GET',
     headers: {
@@ -55,7 +55,6 @@ export const fetchStats = () => dispatch => {
     },
   })
   .then(response => {
-    console.log(response.data);
     dispatch(populateStats(response.data));
-  })
+  }), 300);
 }

@@ -1,0 +1,32 @@
+/* Logout modal CSS */
+
+.logout-modal-container {
+  background-color:#EEEEEE;
+  width:40em;
+  position:fixed;
+  top:10em;
+  left:calc(10%);
+  padding:2em;
+  border-radius:10px;
+  text-align:center;
+  box-shadow: 4px 4px gray;
+}
+
+.logout-modal-header {
+  font-size:1.5em;
+  margin-bottom:10px;
+}
+
+.logout-modal-prompt {
+  font-size:1.2em;
+  margin-bottom:10px;
+}
+
+.logout-modal-buttons button {
+  padding:10px;
+  border:none;
+  margin:2px;
+  margin-right:1em;
+  margin-left:1em;
+
+}
