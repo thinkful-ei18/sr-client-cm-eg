@@ -25,10 +25,10 @@
   flex: 1;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
-.navbar-logged-out:last-child, .navbar-logged-in:last-child {
+.navbar-logged-in:last-child {
   margin-right: 2rem;
 }
 
