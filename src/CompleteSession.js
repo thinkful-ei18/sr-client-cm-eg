@@ -8,7 +8,6 @@ import { closeModal } from './actions/stats';
 
 export class CompleteSession extends Component {
   onClick() {
-    console.log('closed');
     this.props.dispatch(closeModal());
   }
 

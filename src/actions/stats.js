@@ -26,6 +26,11 @@ export const closeModal = () => ({
   type: CLOSE_MODAL
 })
 
+export const POPULATE_LEADERBOARD = 'POPULATE_LEADERBOARD';
+export const populateLeaderboard = leadersArr => ({
+  type:POPULATE_LEADERBOARD,
+  leadersArr
+})
 
 
 //================================== Async Actions ====================>
@@ -62,8 +67,21 @@ export const fetchStats = () => dispatch => {
     },
   })
     .then(response => {
-      console.log(response.data);
       dispatch(populateStats(response.data));
     })
+}
 
+export const fetchLeaderboard = () => dispatch => {
+  const authToken = localStorage.getItem('authToken');
+  axios({
+    url: `${API_BASE_URL}/users`,
+    method: 'GET',
+    headers: {
+      'content-type': 'application/json',
+      Authorization: `Bearer ${authToken}`
+    },
+  })
+    .then(response => {
+      dispatch(populateLeaderboard(response.data));
+    })
 }

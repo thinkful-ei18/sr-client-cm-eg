@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import RequiresLogin from './Requires-Login';
-import { fetchStats } from './actions/stats';
+import { fetchStats, fetchLeaderboard } from './actions/stats';
 import QuestionBox from './Questionbox';
+import LeaderBoardUnit from './LeaderBoardUnit';
 
 
 
@@ -10,9 +11,8 @@ class Dashboard extends Component {
 
 
   componentDidMount() {
-    if (this.props.userInfo) {
     this.props.dispatch(fetchStats());
-    }
+    this.props.dispatch(fetchLeaderboard());
   }
   render() {
     let questionStats;
@@ -21,15 +21,35 @@ class Dashboard extends Component {
         return (<QuestionBox key={index} entry={entry} />)
       });
     }
+    let leaderBoard;
+    if (this.props.leaderboard) { 
+      leaderBoard = this.props.leaderboard.map(user => {
+        return <LeaderBoardUnit user={user} key={user.id}/>
+      })
+    }
 
 
     return (
       <div className='stats-page'>
-        <h1> This Session: </h1>
+        <h1> Your Session: </h1>
+        <p className='user-stats-greeting'>
+        Hi {this.props.userName ? this.props.userName : ''}!
+        </p>
         <div className='session-info-stats-page'>
           <p>Correct: {this.props.correctInSession} Incorrect: {this.props.incorrectInSession}</p>
           <p>Your Total Score: {this.props.totalUserScore}</p>
         </div>
+        <section className='leaderboard-container'>
+          <div className='leaderboard-header'>
+            Users Leaderboard
+          </div>
+          <p className='leaderboard-subheader'>
+            See How You're Doing Compared to Others
+          </p>
+          <div className='leaderboard-list-container'>
+            {leaderBoard}
+          </div>
+        </section>
         <section className='question-score-container'>
           <div className='question-score-header'>
             Score by Questions:
@@ -49,7 +69,9 @@ export const mapStateToProps = (state, props) => ({
   incorrectInSession: state.stats.incorrect,
   totalUserScore: state.stats.totalUserScore,
   questionScoreStats: state.stats.questionScoreStats,
-  userInfo: state.auth.authToken
+  authToken: state.auth.authToken,
+  leaderboard:state.stats.leaderboard,
+  userName: state.auth.currentUser.firstname
 })
 
 export default RequiresLogin()(connect(mapStateToProps)(Dashboard));

@@ -1,5 +1,5 @@
 import { QUESTION_CORRECT, QUESTION_INCORRECT, INCREASE_QUESTION_COUNT } from "../actions/questions";
-import { POPULATE_STATS, RESET_SESSION, SET_ERROR, CLOSE_MODAL } from '../actions/stats';
+import { POPULATE_STATS, RESET_SESSION, SET_ERROR, CLOSE_MODAL, POPULATE_LEADERBOARD } from '../actions/stats';
 
 
 
@@ -13,7 +13,8 @@ const initialState = {
   questionsAnswered: 0,
   questionScoreStats: null,
   sessionsCompleted: 0,
-  showModal: false
+  showModal: false,
+  leaderBoard:null
 };
 
 export const statsReducer = (state = initialState, action) => {
@@ -63,6 +64,11 @@ export const statsReducer = (state = initialState, action) => {
       return {
         ...state,
         error: true
+      }
+      case POPULATE_LEADERBOARD:
+      return {
+        ...state,
+        leaderboard:action.leadersArr
       }
 
     default: return state;
