@@ -20,7 +20,7 @@ export class CompleteSession extends Component {
         <h1>Congrats! You just completed a session!</h1>
         <p> You're making progress understanding Data Science and Algorithms</p>
         <p> Click <Link to='/dashboard'>here</Link> to see your Stats </p>
-        <button onClick={() => this.onClick()}>Close</button>
+        <button onClick={() => this.onClick()}>- Hide this -</button>
       </div>
     )
   }

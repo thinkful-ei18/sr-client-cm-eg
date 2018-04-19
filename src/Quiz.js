@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import RequiresLogin from './Requires-Login';
 import { getQuestion, questionSubmitted } from './actions/questions';
 import AnswerForm from './AnswerForm';
-import CompleteSession from './CompleteSession';
+
 import { incrementSessions, resetSession } from './actions/stats';
 
 
@@ -16,11 +16,9 @@ class Quiz extends Component {
   }
 
   completeSession() {
-    console.log('10');
     this.props.dispatch(incrementSessions());
     this.props.dispatch(resetSession());
     this.props.dispatch(questionSubmitted());
-    console.log('dispatched');
   }
 
   render() {
@@ -34,7 +32,6 @@ class Quiz extends Component {
     return (
 
       <div className='quiz-container'>
-        {this.props.showModal ? <CompleteSession /> : null}
         {this.props.questionsAnswered === 10 ? this.completeSession() : null}
         <div className='question'>
           <div className='question-text'><h2>{this.props.question}</h2></div>
