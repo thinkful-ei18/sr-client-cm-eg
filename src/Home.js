@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 // styles
 import './styles/style-homepage/homeComponent.css';
+import Login from './Login';
 
 export class Home extends Component {
   render() {
@@ -16,7 +17,6 @@ export class Home extends Component {
         <div className='top-end'></div>
 
         <section>
-
         </section>
       </div>
     )
