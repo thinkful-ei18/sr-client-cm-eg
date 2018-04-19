@@ -56,28 +56,6 @@
 
 }
 
-.question-stats-box:hover {
-  /* position: relative;
-  top: -2px;
-  -webkit-box-shadow: 10px 10px 5px -5px rgba(0, 0, 0, 0.329);
-  -moz-box-shadow: 10px 10px 5px -5px rgba(0, 0, 0, 0.329);
-  box-shadow: 10px 10px 5px -5px rgba(0, 0, 0, 0.329); */
-}
-
-/* Complete Session CSS */
-
-.complete-session-modal {
-  position:fixed;
-  top:calc(20%);
-  left:calc(20%);
-  height:60%;
-  width:60%;
-  background-color:#EEEEEE;
-  border:1px solid black;
-  border-radius:10px;
-  left:calc(30%);
-}
-
 /* INDIVIDUAL CARDS */
 
 .question-box-question {

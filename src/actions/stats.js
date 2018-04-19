@@ -1,6 +1,6 @@
 //TODO: write fetch for GET & POST
 //TODO: write actions
-import {API_BASE_URL} from '../config';
+import { API_BASE_URL } from '../config';
 import axios from 'axios';
 
 export const RESET_SESSION = 'RESET_SESSION';
@@ -11,7 +11,7 @@ export const resetSession = () => ({
 
 export const POPULATE_STATS = 'POPULATE_STATS';
 export const populateStats = (stats) => ({
-  type:POPULATE_STATS,
+  type: POPULATE_STATS,
   stats
 })
 
@@ -19,6 +19,11 @@ export const SET_ERROR = 'SET_ERROR';
 export const setError = err => ({
   type: SET_ERROR,
   err
+})
+
+export const CLOSE_MODAL = 'CLOSE_MODAL';
+export const closeModal = () => ({
+  type: CLOSE_MODAL
 })
 
 
@@ -29,13 +34,14 @@ export const setError = err => ({
 export const incrementSessions = () => dispatch => {
   const authToken = localStorage.getItem('authToken');
   axios({
-    url:`${API_BASE_URL}/stats`,
-    method:'POST',
+    url: `${API_BASE_URL}/stats`,
+    method: 'POST',
     headers: {
       'content-type': 'application/json',
       Authorization: `Bearer ${authToken}`
     },
   })
+
   .then(response => {
   })
   .catch(err => {
@@ -46,15 +52,18 @@ export const incrementSessions = () => dispatch => {
 export const fetchStats = () => dispatch => {
 
   const authToken = localStorage.getItem('authToken');
-  setTimeout(axios({
-    url:`${API_BASE_URL}/stats`,
-    method:'GET',
+  axios({
+    url: `${API_BASE_URL}/stats`,
+    method: 'GET',
+
     headers: {
       'content-type': 'application/json',
       Authorization: `Bearer ${authToken}`
     },
   })
-  .then(response => {
-    dispatch(populateStats(response.data));
-  }), 300);
+    .then(response => {
+      console.log(response.data);
+      dispatch(populateStats(response.data));
+    })
+
 }

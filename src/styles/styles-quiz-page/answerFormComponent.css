@@ -20,6 +20,7 @@
   position: relative;
   top: 2rem;
   margin-top: 1rem;
+  margin: auto;
   max-width: 30rem;
   height: 4rem;
   max-height: 4rem;
@@ -75,7 +76,7 @@
 }
 
 .fieldset-answer input::placeholder {
-  color: lightgray;
+  color: rgba(255, 255, 255, 0.788);
 }
 
 .fieldset-answer input:focus {
@@ -85,7 +86,6 @@
 .fieldset-answer label {
   display: none
 }
-
 
 
 /* MEDIA QUERIES */

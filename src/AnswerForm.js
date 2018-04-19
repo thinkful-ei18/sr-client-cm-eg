@@ -4,10 +4,12 @@ import Input from './Input';
 import { required, notEmpty } from './validators'
 import { connect } from 'react-redux';
 import RequiresLogin from './Requires-Login';
+import CompleteSession from './CompleteSession';
 import { answerQuestion, questionSubmitted, getQuestion, increaseQuestionCount } from './actions/questions';
 
 // styles
 import './styles/styles-quiz-page/answerFormComponent.css';
+
 
 class AnswerForm extends Component {
   onSubmit(values) {
@@ -16,9 +18,9 @@ class AnswerForm extends Component {
     return this.props.dispatch(answerQuestion(answer))
       .then(() => this.props.dispatch(reset('answer')))
       .then(() => {
-         this.props.dispatch(increaseQuestionCount())
-         this.props.dispatch(questionSubmitted());
-         this.focusMethod('.question-button');
+        this.props.dispatch(increaseQuestionCount())
+        this.props.dispatch(questionSubmitted());
+        this.focusMethod('.question-button');
       })
   }
 
@@ -29,8 +31,8 @@ class AnswerForm extends Component {
     this.focusMethod('.form-input-focus');
   }
 
-  focusMethod = function getFocus(classname) {   
-    console.log('this ran');    
+  focusMethod = function getFocus(classname) {
+    console.log('this ran');
     setTimeout(document.querySelector(classname).focus(), 500);
   }
 
@@ -46,11 +48,6 @@ class AnswerForm extends Component {
       </div>
     }
 
-    if (this.props.questionCount === 10) {
-      //TODO: dispatch POST stats to backend, notify user they have completed a session, reset questionsAnswered to zero
-      // dispatch(sendStats(correct, incorrect)) POST session info to backend
-      // dispatch(resetSession())
-    }
 
     return (
       <div>
@@ -75,7 +72,10 @@ class AnswerForm extends Component {
           {this.props.answer}
           <div className='next-question'>{nextQuestion}</div>
         </div>
-        <div className='session-stats'><p>Session progress: {this.props.questionCount} / 10</p></div>
+        <div className='session-stats'><p>Session progress: {this.props.questionCount} / 10</p>
+          {this.props.showModal ? <CompleteSession /> : null}
+
+        </div>
       </div>
     )
   }
@@ -84,7 +84,8 @@ class AnswerForm extends Component {
 export const mapStateToProps = (state, props) => ({
   answer: state.questions.result,
   questionCount: state.stats.questionsAnswered,
-  questionSubmitted: state.questions.questionSubmitted
+  questionSubmitted: state.questions.questionSubmitted,
+  showModal: state.stats.showModal
 })
 
 export default reduxForm({

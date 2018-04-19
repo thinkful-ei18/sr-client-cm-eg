@@ -30,7 +30,7 @@
   align-items: center;
   -webkit-transition: background-color 500ms linear;
     -ms-transition: background-color 500ms linear;
-    transition: background-color 500ms linear;
+    transition: background-color 5git status00ms linear;
   /* background-color: #00acc1 */
 }
 
