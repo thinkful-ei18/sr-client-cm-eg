@@ -41,19 +41,21 @@ export const incrementSessions = () => dispatch => {
       Authorization: `Bearer ${authToken}`
     },
   })
-    .then(response => {
-      console.log('Congratulations, you completed a session!');
-    })
-    .catch(err => {
-      dispatch(setError(err));
-    })
+
+  .then(response => {
+  })
+  .catch(err => {
+    dispatch(setError(err));
+  })
 };
 
 export const fetchStats = () => dispatch => {
+
   const authToken = localStorage.getItem('authToken');
   axios({
     url: `${API_BASE_URL}/stats`,
     method: 'GET',
+
     headers: {
       'content-type': 'application/json',
       Authorization: `Bearer ${authToken}`
@@ -63,4 +65,5 @@ export const fetchStats = () => dispatch => {
       console.log(response.data);
       dispatch(populateStats(response.data));
     })
+
 }

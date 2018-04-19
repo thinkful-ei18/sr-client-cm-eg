@@ -41,6 +41,11 @@ export const authFailure = error => ({
   error
 })
 
+export const TOGGLE_LOGOUT_MODAL = 'TOGGLE_LOGOUT_MODAL';
+export const toggleLogoutModal = () => ({
+  type: TOGGLE_LOGOUT_MODAL
+})
+
 const storeAuthInfo = (authToken, dispatch) => {
   const decodedToken = jwtDecode(authToken);
   dispatch(setAuth(authToken));
@@ -64,10 +69,9 @@ export const login = (username, password) => dispatch => {
   })
     .then((response) => storeAuthInfo(response.data.authToken, dispatch))
     .catch(err => {
-      console.log(err.response);
       // error 401, password or username incorrect
       let message;
-      if (err.response.status === 500) {
+      if (!err.response || err.response.status === 500) {
         message = 'User not found';
       } else if (err.response.status === 400) {
         message = 'Incorrect username or password'

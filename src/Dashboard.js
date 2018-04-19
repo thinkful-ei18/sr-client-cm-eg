@@ -10,7 +10,9 @@ class Dashboard extends Component {
 
 
   componentDidMount() {
+    if (this.props.userInfo) {
     this.props.dispatch(fetchStats());
+    }
   }
   render() {
     let questionStats;
@@ -46,7 +48,8 @@ export const mapStateToProps = (state, props) => ({
   correctInSession: state.stats.correct,
   incorrectInSession: state.stats.incorrect,
   totalUserScore: state.stats.totalUserScore,
-  questionScoreStats: state.stats.questionScoreStats
+  questionScoreStats: state.stats.questionScoreStats,
+  userInfo: state.auth.authToken
 })
 
 export default RequiresLogin()(connect(mapStateToProps)(Dashboard));

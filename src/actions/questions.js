@@ -81,7 +81,6 @@ export const answerQuestion = (answer) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
 
   dispatch(resultRequest())
-  console.log('POST with ' + answer)
   return fetch(`${API_BASE_URL}/questions`, {
     method: 'POST',
     headers: {
@@ -95,7 +94,6 @@ export const answerQuestion = (answer) => (dispatch, getState) => {
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
     .then(({ result }) => {
-      console.log(result);
       if (result.boolean === true) {
         dispatch(questionCorrect())
       } else {
