@@ -14,7 +14,7 @@ const initialState = {
   questionScoreStats: null,
   sessionsCompleted: 0,
   showModal: false,
-  leaderBoard:null
+  leaderboard: null
 };
 
 export const statsReducer = (state = initialState, action) => {
@@ -65,10 +65,10 @@ export const statsReducer = (state = initialState, action) => {
         ...state,
         error: true
       }
-      case POPULATE_LEADERBOARD:
+    case POPULATE_LEADERBOARD:
       return {
         ...state,
-        leaderboard:action.leadersArr
+        leaderboard: action.leadersArr
       }
 
     default: return state;
