@@ -12,7 +12,7 @@ export class Home extends Component {
         <header>
           <div className="header-top-diagonal"></div>
           <h1>Ready to learn?</h1>
-          <p>Welcome to DSAwesome, our quiz app uses a Spaced Repition Algorithm to help you get the most out of your studying.</p>
+          <p>Welcome to DSAwesome, our quiz app uses a Spaced Repetition Algorithm to help you get the most out of your studying.</p>
         </header>
         <div className='top-end'></div>
 
