@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import RequiresLogin from './Requires-Login';
 import { fetchStats, fetchLeaderboard } from './actions/stats';
+import {questionSubmitted} from './actions/questions';
 import QuestionBox from './Questionbox';
 import LeaderBoardUnit from './LeaderBoardUnit';
 
