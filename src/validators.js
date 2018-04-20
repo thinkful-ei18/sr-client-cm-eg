@@ -6,7 +6,7 @@ export const isTrimmed = value => (value.trim() === value ? undefined : 'Cannot 
 
 export const length = length => value => {
   if (length.min && value.length < length.min) {
-    return `Must be at least ${length.max} characters`
+    return `Must be at least ${length.min} characters`
   }
   if (length.max && value.length > length.max) {
     return `Must not be longer than ${length.max} characters`
