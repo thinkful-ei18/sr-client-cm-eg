@@ -13,12 +13,16 @@ import './styles/styles-quiz-page/quizComponent.css';
 class Quiz extends Component {
   componentDidMount() {
     this.props.dispatch(getQuestion());
+    this.props.dispatch(questionSubmitted());
+    // Re-enable input incase the module mounts with it disabled
+    if (!this.props.questionSubmitted) {
+      this.props.dispatch(questionSubmitted()); 
+    }
   }
 
   completeSession() {
     this.props.dispatch(incrementSessions());
     this.props.dispatch(resetSession());
-    this.props.dispatch(questionSubmitted());
   }
 
   render() {
@@ -48,7 +52,8 @@ export const mapStateToProps = (state, props) => ({
   boolean: state.questions.resultBoolean,
   question: state.questions.question ? state.questions.question : null,
   questionsAnswered: state.stats.questionsAnswered,
-  showModal: state.stats.showModal
+  showModal: state.stats.showModal,
+  questionSubmitted:state.questions.questionSubmitted
 });
 
 export default RequiresLogin()(connect(mapStateToProps)(Quiz));
