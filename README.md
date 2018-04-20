@@ -27,4 +27,6 @@ Check out the live site [here](https://elated-jackson-e60e1b.netlify.com/)
 Check out the live site [here](https://elated-jackson-e60e1b.netlify.com/)
 
 ## Screenshots
-Quiz page: ![Quix page with correct answer]('./READMEassets/Screen Shot 2018-04-20 at 10.12.03 AM.png "Correct!")
+Quiz page with correct answer: ![Quiz page with correct answer](https://i.imgur.com/CEN4DLC.png "Correct!")
+Quiz page with incorrect answer: ![Quiz page with incorrect answer](https://i.imgur.com/wnl0WRl.png "Incorrect!")
+Dashboard page: ![Dashboard page](https://i.imgur.com/CimtUhq.png "The user dashboard")
