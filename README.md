@@ -1,7 +1,9 @@
 # DSAwesome
 Hello! DSAwesome is a quiz app designed to help you learn more about data structures and algorithims. Our quiz app uses a Spaced Repetition algorithim to help you get the most out of your studying.  
   
-Check out the live site [here](https://dsawesome.netlify.com/)
+Check out the live site [here](https://dsawesome.netlify.com)
+
+Server Repo here [here](https://github.com/thinkful-ei18/sr-server-cm-eg)
 
 ## Tech Stack
 ### Front-end
